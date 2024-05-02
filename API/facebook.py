@@ -1,7 +1,3 @@
-import requests
-import re
-from bs4 import BeautifulSoup
-
 class Unit:
     """Important Elements to record
     - Name
@@ -13,7 +9,9 @@ class Unit:
     - Location
     """
 
-    def __int__(self, url: str, name: str = None, cost: int = None, bedrooms: int = None, bathrooms: int = None,
+    # TODO Interface with Facebook, for future iterations
+
+    def __init__(self, url: str, name: str = None, cost: int = None, bedrooms: int = None, bathrooms: int = None,
                 size: str = None, location: str = None):
         assert type(url) is str
         self.__url = url
@@ -27,7 +25,7 @@ class Unit:
         self.__cost = cost
 
         # How many bedrooms in the unit
-        assert type(bedrooms) is str or None
+        assert type(bedrooms) is int or None
         self.__bedrooms = bedrooms
 
         # How many bathrooms in the unit

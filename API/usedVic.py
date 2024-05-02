@@ -1,18 +1,19 @@
 from abc import ABC
 from datetime import datetime
+
 import requests
 import re
 from bs4 import BeautifulSoup
+
 from API.unitInterface import UnitInterface
 
 def digest_main_url(url: str, text=None) -> list:
     """
-    This function returns a list of Unit objects from the main page of craigslist
+    Function to turn the given url into more usable data
     :param url: The URL to digest, this is the URL with all the listings, the main page
     :param text: For testing, your own HTML can be sent in instead
     """
     results = []
-    # Sets up the request response for the URL or text
     if text is None:
         request_response = requests.get(url=url,
                                         headers={
@@ -21,26 +22,28 @@ def digest_main_url(url: str, text=None) -> list:
         response_text = request_response.text
     else:
         response_text = text
-    # Parse HTML with BeautifulSoup 4
-    soup = BeautifulSoup(response_text, "html.parser")
 
-    # Extract essential elements about each listing, this can then be further processed per unit with digest_url
-    for elem in soup.find_all("div", attrs={"class": "search-item"}):
+    soup = BeautifulSoup(response_text, "html.parser")
+    print(soup)
+    soup = soup.find("div",attrs={"class": "browse-ad-list"})
+    listing = soup.find_all("a", attrs={"class": "ad-list-item-link"})
+    for result in listing:
         try:
-            name = elem.find("a", attrs={"class":"title"}).text.strip()
-            url = "https://www.kijiji.ca" + elem.find("a", attrs={"class":"title"}).get("href")
-            location = elem.find("div", attrs={"class":"location"}).span.text.strip()
-            cost = elem.find("div", attrs={"class": "price"}).text.strip().split(".")[0]
-            cost = int(cost.replace(",","").replace("$",""))
-            bedrooms = elem.find("span", attrs={"class":"bedrooms"}).text.strip()
-            match = re.search(r".*(\d).*", bedrooms)
-            if match:
-                bedrooms = int(match.group(1))
+            tmp = url.split(".com")[0]
+            url = tmp + ".com" + result.get("href")
+            title_and_cost = result.text.strip().split(" · ")
+            if len(title_and_cost) == 1:
+                continue
             else:
-                bedrooms = None
-            results += [Unit(url, name, cost, bedrooms, location=location)]
+                cost = title_and_cost[0]
+                title = title_and_cost[1]
+
+                cost = int(cost.replace("$","").replace(",",""))
+                results += [Unit(url, title, cost)]
         except IndexError as e:
-            print("Error scanning", e)
+            print("Didn't match format: ", e, result)
+        except ValueError as v:
+            print("No Price: ", v, result)
     return results
 
 
@@ -51,10 +54,12 @@ class Unit(UnitInterface, ABC):
     - Bedrooms
     - Bathrooms
     - Bathrooms
+    - Size
     - Location
     """
-    def __init__(self, url: str, name: str = None, cost: int = None, bedrooms: int = None,
-                bathrooms: int = None, size: int = None, location: str = None):
+
+    def __init__(self, url: str, name: str = None, cost: int = None, bedrooms: int = None, bathrooms: int = None,
+                size: int = None, location: str = None):
         assert type(url) is str
         self.__url = url
 
@@ -74,19 +79,20 @@ class Unit(UnitInterface, ABC):
         assert type(bathrooms) is int or bathrooms is None
         self.__bathrooms = bathrooms
 
+        # How large is the unit in squared units
+        assert type(size) is int or size is None
+        self.__size = size
+
         # Where is the unit located
         assert type(location) is str or location is None
         self.__location = location
-
-        assert type(size) is int or size is None
-        self.__size = size
 
         self.__description = None
 
         self.__valid = True
         self.__time = datetime.now().timestamp()
 
-        self.__website = "kijiji"
+        self.__website = "used vic"
 
     def __str__(self):
         return f"TITLE: {self.__name}\n" \
@@ -125,23 +131,19 @@ class Unit(UnitInterface, ABC):
         except requests.exceptions.RequestException:
             self.__valid = False
             return
-
         soup = BeautifulSoup(response_text, "html.parser")
-
-        match = re.search(".*Bathrooms: (\d).*", soup.prettify())
-        if match:
-            self.__bathrooms = match.group(1)
-
-        attribute_results = soup.select('[class^="twoLinesAttribute-"]')
-        for result in attribute_results:
-            match = re.search("Size \(sqft\).*?(\d+)",result.text.replace(",",""))
+        list_items = soup.find_all("li", attrs={"class":"align-items-center"})
+        for item in list_items:
+            match = re.search("# of Bedrooms.*(\d).*", item.text)
             if match:
-                self.__size = match.group(1)
-        try:
-            description_result = soup.select_one('[class^="descriptionContainer-"]').p.text.replace("\n","")
-            self.__description = description_result
-        except AttributeError:
-            pass
+                self.__bedrooms = match.group(1)
+            match = re.search("# of Bathrooms.*?(\d).*", item.text)
+            if match:
+                self.__bathrooms = match.group(1)
+        description = soup.find("div", attrs={"class":"adview-ad-details"}).p.text.strip().split(" ")
+        description = [word for word in description if word!=""]
+        description = " ".join(description).replace("\n","").replace("\r","")
+        self.__description = description
 
     @property
     def url(self):
@@ -180,6 +182,14 @@ class Unit(UnitInterface, ABC):
         self.__bathrooms = value
 
     @property
+    def size(self):
+        return self.__size
+
+    @size.setter
+    def size(self, value: str):
+        self.__size = value
+
+    @property
     def location(self):
         return self.__location
 
@@ -194,14 +204,6 @@ class Unit(UnitInterface, ABC):
     @description.setter
     def description(self, value: str):
         self.__description = value
-
-    @property
-    def size(self):
-        return self.__size
-
-    @size.setter
-    def size(self, value: str):
-        self.__size = value
 
     @property
     def time(self):

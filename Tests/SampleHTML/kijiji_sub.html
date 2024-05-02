@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<!-- Chameleon -->
+
+<script>
+    /* chameleon.io script */
+    !(function (d, w) {
+        var t =
+                "SXfM3xWM3x2ciilITF8OVBPMmRefs77BuvlXbDTImgbXx8-1OnE3c-DQ05JnDvFdapr0B1",
+            c = "chmln",
+            i = d.createElement("script");
+        if ((w[c] || (w[c] = {}), !w[c].root)) {
+            (w[c].accountToken = t),
+                (w[c].location = w.location.href.toString()),
+                (w[c].now = new Date()),
+                (w[c].fastUrl = "https://fast.chameleon.io/");
+            var m =
+                "identify alias track clear set show on off custom help _data".split(
+                    " "
+                );
+            for (var s = 0; s < m.length; s++) {
+                !(function () {
+                    var t = (w[c][m[s] + "_a"] = []);
+                    w[c][m[s]] = function () {
+                        t.push(arguments);
+                    };
+                })();
+            }
+            (i.src = w[c].fastUrl + "messo/" + t + "/messo.min.js"),
+                (i.async = !0),
+                d.head.appendChild(i);
+        }
+    })(document, window);
+    function generateUuid() {
+        function rng() {
+            return (((1 + Math.random()) * 0x10000) | 0)
+                .toString(10)
+                .substring(1);
+        }
+        return rng() + rng();
+    }
+
+    const ACCEPTED_L1_LOCATIONS = [9002, 9003, 9004, 9005, 9006, 9007, 9009, 9010, 9011];
+    const ACCEPTED_L3_LOCATIONS = [1700075, 1700076, 1700077, 1700130, 1700132, 1700182, 1700183, 1700190, 1700191, 1700210, 1700212, 1700213, 1700218, 1700219, 1700273, 1700274, 1700275, 1700276, 1700277];
+    const EXCLUDED_L3_LOCATIONS = [1700186];
+
+    const MOBILE_BREAKPOINT = 750;
+    const CHAMELEON_COOKIE = "chameleonId";
+    const isMobileUser = screen.width <= MOBILE_BREAKPOINT;
+    let shouldSendDataToChameleon = true;
+    let identifier;
+    let userData = {
+        category_id: 0,
+        device_type: "Desktop",
+        l1_location: 0,
+        l2_location: 0,
+        l3_location: 0,
+        location_name: "",
+        mobile_os: ""
+    };
+
+    // Get the location IDs for L1-L3 and location name in English
+    if (true) {
+        const locationArray = "0,9007,1700173".split(",");
+        const locationName = "Victoria";
+        userData.l1_location = parseInt(locationArray[1]);
+        userData.l2_location = parseInt(locationArray[2]);
+        userData.l3_location = parseInt(locationArray[3]);
+        userData.location_name = locationName;
+    }
+
+    // Check if location ID is in a supported region or if it should be excluded
+    if (EXCLUDED_L3_LOCATIONS.includes(userData.l3_location) || !ACCEPTED_L1_LOCATIONS.includes(userData.l1_location) || !ACCEPTED_L3_LOCATIONS.includes(userData.l3_location)) {
+        shouldSendDataToChameleon = false;
+    }
+    // Get the User ID and logged in status
+    if (false) {
+        // User is logged in, use their Kijiji ID
+        identifier = "";
+        userData.email = "";
+        userData.logged_in_status = "true";
+    } else {
+        // We only want to track users who are logged in
+        shouldSendDataToChameleon = false;
+    }
+
+    /* We don't want to track logged out users, but we might want to later
+    if (localStorage.getItem(CHAMELEON_COOKIE)) {
+        // User is not logged in, get the chameleon ID that was set previously
+        identifier = localStorage.getItem(CHAMELEON_COOKIE);
+    } else {
+        // User is not logged in, generate a chameleon ID for them
+        identifier = generateUuid();
+        localStorage.setItem(CHAMELEON_COOKIE, identifier);
+    }
+     */
+
+    // Get the search category if it's available
+    if (false) {
+        const categoryId = "";
+        userData.category_id = categoryId;
+    }
+    // Get the device type if user is on mobile
+    if (isMobileUser) {
+        userData.device_type = "Mobile";
+        // Determine if iOS or Android
+        const clientData = navigator.userAgent;
+        if (clientData.includes("iPhone")) {
+            userData.mobile_os = "iOS";
+        } else if (clientData.includes("Android")) {
+            userData.mobile_os = "Android";
+        }
+    } else {
+        userData.device_type = "Desktop";
+    }
+
+    /* chameleon.io user identification and data */
+    if (shouldSendDataToChameleon) {
+        chmln.identify(identifier, userData);
+    }
+</script>
+<!-- End Chameleon -->
+<html id="reset" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>1 Bedroom Apartments for Rent in Victoria | Long Term Rentals | Victoria | Kijiji</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. Fraser Tolmie i"/>
+    <link rel="preload" href="https://ca.classistatic.com/static/V/11866/js/bootstrap.js" as="script"/>
+        <link rel="preload" href="https://ca.classistatic.com/static/V/11866/js/common.js" as="script"/>
+    <link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/Larsseit.92161b1b.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/LarsseitMedium.265c8042.woff2" as="font" type="font/woff2" crossorigin /><link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/2.ab34f68d.css" as="style" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/shareLinkBar.e49d2a2a.css" as="style" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/viewItemPage.d2a775e0.css" as="style" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/footer.3f8e2777.css" as="style" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/publicLinks.395c9dd1.css" as="style" /><link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/vendor.afa38b04.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/shareLinkBar.01456f62.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/runtime.2346da4e.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/2.705fb46a.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/app.e008f1c8.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/viewItemPage.ad08a946.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/footer.9f18eb43.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/publicLinks.e3f63c66.js" as="script" />
+<link rel="preload" href="//ca.classistatic.com/service-static/frontend-service/en-i18n-json.8ec372ff.js" as="script" /><link rel="apple-touch-icon" sizes="180x180" href="https://ca.classistatic.com/static/V/11866/img/favicons/apple-touch-icon-new.png">
+<link rel="icon" type="image/png" href="https://ca.classistatic.com/static/V/11866/img/favicons/favicon-32x32-new.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://ca.classistatic.com/static/V/11866/img/favicons/favicon-16x16-new.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="shortcut icon" href="https://ca.classistatic.com/static/V/11866/img/favicons/faviconNew.ico">
+<meta name="apple-mobile-web-app-title" content="Kijiji">
+<meta name="application-name" content="Kijiji">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="theme-color" content="#2c2f6b">
+<meta name="robots" content="max-image-preview:large"><meta name="apple-itunes-app" content="app-id=318979520"/>
+
+    <meta name="msvalidate.01" content="E03E7C8B4B4E1A0234A8D2042FD326E8"/>
+
+    <meta name="yandex-verification" content="1ca862e94bc07ad7"/>
+
+    <meta name="google" content="nositelinkssearchbox">
+
+    <meta property="og:title" content="1 Bedroom Apartments for Rent in Victoria | Long Term Rentals | Victoria | Kijiji"/>
+        <meta property="og:description" content="Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. Fraser Tolmie i"/>
+        <meta property="og:site_name" content="Kijiji"/>
+    <meta property="og:country-name" content="Canada"/>
+    <meta property="og:image" content="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/50/50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-800-jpg"/>
+        <meta property="og:type" content="product"/>
+        <meta property="og:url" content="https://www.kijiji.ca/v-apartments-condos/victoria-bc/1-bedroom-apartments-for-rent-in-victoria/1634176070?siteLocale=en_CA"/>
+    <meta property="og:latitude" content="48.45969"/>
+    <meta property="og:longitude" content="-123.32907"/>
+    <meta property="og:locality" content="British Columbia - Victoria"/>
+    <meta property="og:region" content="victoria"/>
+    <link rel="canonical" href="https://www.kijiji.ca/v-apartments-condos/victoria-bc/1-bedroom-apartments-for-rent-in-victoria/1634176070"/>
+    <link rel="alternate" hreflang="x-default" href="https://www.kijiji.ca/v-apartments-condos/victoria-bc/1-bedroom-apartments-for-rent-in-victoria/1634176070"/>
+    <link rel="alternate" href="https://www.kijiji.ca/v-apartments-condos/victoria-bc/1-bedroom-apartments-for-rent-in-victoria/1634176070?siteLocale=fr_CA" hreflang="fr"/>
+    <link rel="stylesheet" type="text/css" href="//ca.classistatic.com/service-static/frontend-service/2.ab34f68d.css" />
+<link rel="stylesheet" type="text/css" href="//ca.classistatic.com/service-static/frontend-service/shareLinkBar.e49d2a2a.css" />
+<link rel="stylesheet" type="text/css" href="//ca.classistatic.com/service-static/frontend-service/viewItemPage.d2a775e0.css" />
+<link rel="stylesheet" type="text/css" href="//ca.classistatic.com/service-static/frontend-service/footer.3f8e2777.css" />
+<link rel="stylesheet" type="text/css" href="//ca.classistatic.com/service-static/frontend-service/publicLinks.395c9dd1.css" />
+<style data-styled="true" data-styled-version="5.3.1">.ecuFmI{background:#FFFFFF;border:1px solid #D2D3D7;height:48px;width:48px;border-radius:50%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;cursor:pointer;}/*!sc*/
+.ecuFmI > svg{color:#6F727F;}/*!sc*/
+.ecuFmI:hover{border:1px solid #CACAEA;background:#F3F3F9;}/*!sc*/
+.ecuFmI:hover > svg{color:#373373;}/*!sc*/
+.ecuFmI:active{background:#CACAEA;border:1px solid #CACAEA;}/*!sc*/
+.ecuFmI:active > svg{color:#373373;}/*!sc*/
+data-styled.g30[id="sc-cxFLGX"]{content:"ecuFmI,"}/*!sc*/</style><script src="https://ca.classistatic.com/static/V/11866/js/bootstrap.js"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+<script src="https://ca.classistatic.com/static/V/11866/js/lib/prebid-7.5.0.min.js"></script>
+<script>
+        !function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");
+
+        // initialize apstag and have apstag set bids on the googletag slots when they are returned to the page
+        apstag.init({
+            pubID: '5110',
+            adServer: 'googletag',
+            bidTimeout: 2e3,
+            deals: true
+        });
+
+        Kj.toggleAmazonTam = true;
+    </script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    var gptMasterAdData = gptMasterAdData || {};
+    var gptCTMAdData = gptCTMAdData || {};
+    var gptSizeMaps = gptSizeMaps || {};
+    var gptAdSlots = gptAdSlots || {};
+    var gptAdTargeting = gptAdTargeting || [];
+    var gptBannerSizeMapping = gptBannerSizeMapping || [];
+</script>
+
+<script>
+        gptSizeMaps.leaderBoard = {
+            breakPoint: [760, 990],
+            responsive: [
+                { minWidth: 990, sizes: [[728, 90], [970, 90]] },
+                { minWidth: 760, sizes: [728, 90] },
+                { minWidth: 0, sizes: [] }
+            ]
+        };
+        gptSizeMaps.bigBox = {
+            breakPoint: 990,
+            responsive: [
+                { minWidth: 990, sizes: [[300, 250],[300, 600], [160, 600]] },
+                { minWidth: 0, sizes: [[300, 250],[320, 50]] }
+            ]
+        };
+        gptSizeMaps.vliBanner = {
+            breakPoint: 840,
+            responsive: [
+                { minWidth: 840, sizes: [728, 90] },
+                { minWidth: 0, sizes: [320, 50] }
+            ]
+        };
+        gptSizeMaps.leaderBoardBox = {
+            breakPoint: [760, 990],
+            responsive: [
+                { minWidth: 990, sizes: [[728, 90], [970, 250]] },
+                { minWidth: 760, sizes: [728, 90] },
+                { minWidth: 0, sizes: [[300, 250],[320, 50]] }
+            ]
+        };
+        gptSizeMaps.tabBanner = {
+            breakPoint: 1200,
+            responsive: [
+                { minWidth: 1200, sizes: [550, 400] },
+                { minWidth: 0, sizes: [320, 200] }
+            ]
+        };
+        gptSizeMaps.tabBannerStatic = {
+            breakPoint: 1200,
+            responsive: [
+                { minWidth: 1200, sizes: [720, 88] },
+                { minWidth: 0, sizes: [352, 85]}
+            ]
+        };
+        gptSizeMaps.footerBanner = {
+            breakPoint: [760, 990],
+            responsive: [
+                {minWidth: 990, sizes: [[728, 90], [970, 90]]},
+                {minWidth: 760, sizes: [728, 90]},
+                {minWidth: 0, sizes: [[300, 250], [320, 50]]}
+            ]
+        };
+        gptSizeMaps.sponsored = {
+            breakPoint: 760,
+            responsive: [
+                { minWidth: 760, sizes: [575, 210] },
+                { minWidth: 0, sizes: [350, 90] }
+            ]
+        };
+    </script><script>
+        
+
+gptMasterAdData['gpt-posted-vip'] = {
+    id: 'gpt-posted-vip',
+    slot: '/5138/kij.ca.housing/apartments__condos/postad',
+    sizes: [[728, 90],[970, 250]],sizeMapping: gptSizeMaps.leaderBoardBox,tile: '4',pos: 'top',
+    collapse: true,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-posted-vip',
+        breakPoint: gptSizeMaps.leaderBoardBox.breakPoint
+    });
+
+
+gptMasterAdData['gpt-vip-leader'] = {
+    id: 'gpt-vip-leader',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[728, 90]],sizeMapping: gptSizeMaps.leaderBoard,tile: '4',pos: 'top',
+    collapse: false,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-vip-leader',
+        breakPoint: gptSizeMaps.leaderBoard.breakPoint
+    });
+
+
+gptMasterAdData['GPTBigbox'] = {
+    id: 'GPTBigbox',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[300, 250],[300, 600], [160, 600]],sizeMapping: gptSizeMaps.bigBox,tile: '2',pos: 'bottom',
+    collapse: false,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'GPTBigbox',
+        breakPoint: gptSizeMaps.bigBox.breakPoint
+    });
+
+
+gptMasterAdData['gpt-sponsored-left'] = {
+    id: 'gpt-sponsored-left',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[575, 210]],sizeMapping: gptSizeMaps.sponsored,tile: '1',
+    collapse: true,
+    isBiddable: false
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-sponsored-left',
+        breakPoint: gptSizeMaps.sponsored.breakPoint
+    });
+
+
+gptMasterAdData['gpt-sponsored-right'] = {
+    id: 'gpt-sponsored-right',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[575, 210]],sizeMapping: gptSizeMaps.sponsored,tile: '2',
+    collapse: true,
+    isBiddable: false
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-sponsored-right',
+        breakPoint: gptSizeMaps.sponsored.breakPoint
+    });
+
+
+gptMasterAdData['ImageLeaderBoard'] = {
+    id: 'ImageLeaderBoard',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewimage',
+    sizes: [[728,90]],sizeMapping: gptSizeMaps.vliBanner,tile: '1',pagetype: 'viewimage',pos: 'top',
+    collapse: false,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'ImageLeaderBoard',
+        breakPoint: gptSizeMaps.vliBanner.breakPoint
+    });
+
+
+gptMasterAdData['gpt-r2s-vip'] = {
+    id: 'gpt-r2s-vip',
+    slot: '/5138/kij.ca.housing/apartments__condos/r2s',
+    sizes: [[728, 90],[970, 250]],sizeMapping: gptSizeMaps.leaderBoardBox,tile: '4',pagetype: 'r2s',pos: 'top',
+    collapse: true,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-r2s-vip',
+        breakPoint: gptSizeMaps.leaderBoardBox.breakPoint
+    });
+
+
+gptMasterAdData['hidden-trackable'] = {
+    id: 'hidden-trackable',
+    slot: '/5138/kij.ca.housing/apartments__condos',
+    sizes: [1, 1],
+    collapse: false,
+    isBiddable: false
+};
+
+
+
+gptMasterAdData['gpt-vip-footer'] = {
+    id: 'gpt-vip-footer',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[728, 90]],sizeMapping: gptSizeMaps.footerBanner,tile: '5',pos: 'base',
+    collapse: false,
+    isBiddable: true
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-vip-footer',
+        breakPoint: gptSizeMaps.footerBanner.breakPoint
+    });
+
+
+gptMasterAdData['gpt-vip-tab-1'] = {
+    id: 'gpt-vip-tab-1',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[720, 88], [352, 85]],sizeMapping: gptSizeMaps.tabBannerStatic,tile: '1',pos: 'top',
+    collapse: false,
+    isBiddable: false
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-vip-tab-1',
+        breakPoint: gptSizeMaps.tabBannerStatic.breakPoint
+    });
+
+
+gptMasterAdData['gpt-vip-tab-2'] = {
+    id: 'gpt-vip-tab-2',
+    slot: '/5138/kij.ca.housing/apartments__condos/viewitem',
+    sizes: [[720, 88], [352, 85]],sizeMapping: gptSizeMaps.tabBannerStatic,tile: '2',pos: 'top',
+    collapse: false,
+    isBiddable: false
+};
+
+
+    gptBannerSizeMapping.push({
+        name: 'gpt-vip-tab-2',
+        breakPoint: gptSizeMaps.tabBannerStatic.breakPoint
+    });
+</script><script>
+    
+        gptAdTargeting.push({ key: 'pets', value: 'yes' });
+    
+        gptAdTargeting.push({ key: 'pagetype', value: 'viewitem' });
+    
+        gptAdTargeting.push({ key: 'pt', value: 'VIP' });
+    
+        gptAdTargeting.push({ key: 'city', value: 'victoria' });
+    
+        gptAdTargeting.push({ key: 'l1', value: 'housing' });
+    
+        gptAdTargeting.push({ key: 'propmgr', value: 'frasertolmie1701cedarhillx' });
+    
+        gptAdTargeting.push({ key: 'reg_user', value: 'no' });
+    
+        gptAdTargeting.push({ key: 'l2', value: 'for_rent' });
+    
+        gptAdTargeting.push({ key: 'hn', value: 'kijiji.ca' });
+    
+        gptAdTargeting.push({ key: 'l3', value: 'apartments__condos' });
+    
+        gptAdTargeting.push({ key: 'lt', value: 'c' });
+    
+        gptAdTargeting.push({ key: 'type', value: 'OFFER' });
+    
+        gptAdTargeting.push({ key: 'features', value: ["topad"] });
+    
+        gptAdTargeting.push({ key: 'dv', value: 'd' });
+    
+        gptAdTargeting.push({ key: 'bdrm', value: '1' });
+    
+        gptAdTargeting.push({ key: 'HBL', value: 'yes' });
+    
+        gptAdTargeting.push({ key: 'province', value: 'britishcolumbia' });
+    
+        gptAdTargeting.push({ key: 'g_prebid_version', value: '7.5.0' });
+    
+        gptAdTargeting.push({ key: 'price', value: '2135' });
+    
+        gptAdTargeting.push({ key: 'webappname', value: 'box' });
+    
+        gptAdTargeting.push({ key: 'lang', value: 'en' });
+    
+        gptAdTargeting.push({ key: 'bath', value: '1' });
+    
+        gptAdTargeting.push({ key: 'forrentby', value: 'professional' });
+    
+        gptAdTargeting.push({ key: 'ab', value: '0' });
+    
+        gptAdTargeting.push({ key: 'ptg', value: ["CASINT4862_0", "CASINT5487_1", "KCA34949_0", "KCA38991_1", "KCAN1050__-99", "KCAN10715__0", "KCAN13748__-99", "KCAN15957__1", "KCAN17895__0", "KCAN1806__1", "KCAN18206__0", "KCAN18529__-99", "KCAN18697__1", "KCAN19025__-99", "KCAN19634__-99", "KCAN3326__0", "KCAN3671__1", "KCAN4308__-99", "KCAN5349__-99", "KCAN6062__-99", "KCAN6084__-99", "KCAN667_0", "KCAN810__0", "KCAN909__-99"] });
+    
+        gptAdTargeting.push({ key: 'ct', value: ["37", "30349001", "34"] });
+    
+        gptAdTargeting.push({ key: 'lc', value: '1700173' });
+    
+        gptAdTargeting.push({ key: 'furn', value: 'no' });
+    
+        gptAdTargeting.push({ key: 'bellfibe', value: 'none' });
+    
+        gptAdTargeting.push({ key: 'li', value: 'no' });
+    
+        gptAdTargeting.push({ key: 'g_adid', value: '1634176070' });
+    </script>
+
+<script>
+var pbPartnerConfig = pbPartnerConfig || [];
+
+
+    pbPartnerConfig.push({
+        id: 'appnexus',
+        cpmAdjustment: 1,
+        params: {
+            'ImageLeaderBoard':     { placementId: '10477092' },'gpt-r2s-vip':          { placementId: '10477092' },'gpt-posted-vip':       { placementId: '10477092' },'gpt-rightrail-top':    { placementId: '10477237' },'gpt-rightrail-bottom': { placementId: '10477240' },'gpt-vip-leader':       { placementId: '10477242' },'GPTBigbox':            { placementId: '10477243' },'gpt-leaderboard-top':  { placementId: '10477244' },'gpt-top-srp':          { placementId: '10477245' },'gpt-inline-srp':       { placementId: '10477246' },'gpt-inline2-srp':      { placementId: '18317550' },'gpt-inline3-srp':      { placementId: '18317551' },'gpt-leaderboard-base': { placementId: '10477247' },'gpt-skyscraper':       { placementId: '10477248' },'gpt-leader-bottom':    { placementId: '10477240' },'gpt-sticky':           { placementId: '10477244' },'gpt-vip-footer':       { placementId: '16687876' }
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'ix',
+        cpmAdjustment: 1,
+        params: {
+            'ImageLeaderBoard':     { siteId: '190665' },'gpt-r2s-vip':          { siteId: '190665' },'gpt-posted-vip':       { siteId: '190665' },'gpt-rightrail-top':    { siteId: '190666' },'gpt-rightrail-bottom': { siteId: '190667' },'gpt-vip-leader':       { siteId: '190668' },'GPTBigbox':            { siteId: '190669' },'gpt-leaderboard-top':  { siteId: '190663' },'gpt-top-srp':          { siteId: '190670' },'gpt-inline-srp':       { siteId: '190671' },'gpt-inline2-srp':      { siteId: '452978' },'gpt-inline3-srp':      { siteId: '452979' },'gpt-leaderboard-base': { siteId: '190672' },'gpt-skyscraper':       { siteId: '190673' },'gpt-leader-bottom':    { siteId: '190667' },'gpt-vip-footer':       { siteId: '400482' }
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'openx',
+        cpmAdjustment: 1.0,
+        params: {
+            'ImageLeaderBoard':     { delDomain: 'kijiji-d.openx.net', unit: '538714686' },'gpt-r2s-vip':          { delDomain: 'kijiji-d.openx.net', unit: '538714686' },'gpt-posted-vip':       { delDomain: 'kijiji-d.openx.net', unit: '538714686' },'gpt-rightrail-top':    { delDomain: 'kijiji-d.openx.net', unit: '538714687' },'gpt-rightrail-bottom': { delDomain: 'kijiji-d.openx.net', unit: '538714688' },'gpt-vip-leader':       { delDomain: 'kijiji-d.openx.net', unit: '538714689' },'GPTBigbox':            { delDomain: 'kijiji-d.openx.net', unit: '538714690' },'gpt-leaderboard-top':  { delDomain: 'kijiji-d.openx.net', unit: '538714691' },'gpt-top-srp':          { delDomain: 'kijiji-d.openx.net', unit: '538714692' },'gpt-inline-srp':       { delDomain: 'kijiji-d.openx.net', unit: '538714693' },'gpt-inline2-srp':      { delDomain: 'kijiji-d.openx.net', unit: '540955320' },'gpt-inline3-srp':      { delDomain: 'kijiji-d.openx.net', unit: '540955321' },'gpt-leaderboard-base': { delDomain: 'kijiji-d.openx.net', unit: '538714694' },'gpt-skyscraper':       { delDomain: 'kijiji-d.openx.net', unit: '538714696' },'gpt-leader-bottom':    { delDomain: 'kijiji-d.openx.net', unit: '538714688' },'gpt-sticky':           { delDomain: 'kijiji-d.openx.net', unit: '538714691' },'gpt-vip-footer':       { delDomain: 'kijiji-d.openx.net', unit: '540825836' }
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'pubmatic',
+        cpmAdjustment: 1.0,
+        params: {
+            'ImageLeaderBoard':     { publisherId: '155984', adSlot: 'PUBMATIC_ADFLOW_TOP_ENGLISH_728x90@728x90' },'gpt-r2s-vip':          { publisherId: '155984', adSlot: 'PUBMATIC_ADFLOW_TOP_ENGLISH_728x90@728x90' },'gpt-posted-vip':       { publisherId: '155984', adSlot: 'PUBMATIC_ADFLOW_TOP_ENGLISH_728x90@728x90' },'gpt-rightrail-top':    { publisherId: '155984', adSlot: 'PUBMATIC_HOMEPAGE_TOP_ENGLISH_300x250@300x250' },'gpt-rightrail-bottom': { publisherId: '155984', adSlot: 'PUBMATIC_HOMEPAGE_BOTTOM_ENGLISH_300x250@300x250' },'gpt-vip-leader':       { publisherId: '155984', adSlot: 'PUBMATIC_VIEW_ITEM_PAGE_TOP_ENGLISH_728x90@728x90' },'GPTBigbox':            { publisherId: '155984', adSlot: 'PUBMATIC_VIEW_ITEM_PAGE_BOTTOM_ENGLISH_300x250@300x250' },'gpt-leaderboard-top':  { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_TOP_ENGLISH_728x90@728x90' },'gpt-top-srp':          { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_INLINE1_ENGLISH_728x90@728x90' },'gpt-inline-srp':       { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_INLINE2_ENGLISH_728x90@728x90' },'gpt-inline2-srp':      { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_INLINE3_ENGLISH_728x90@728x90' },'gpt-inline3-srp':      { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_INLINE4_ENGLISH_728x90@728x90' },'gpt-leaderboard-base': { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_BASEBOARD_ENGLISH_728x90@728x90' },'gpt-skyscraper':       { publisherId: '155984', adSlot: 'PUBMATIC_SEARCH_RESULTS_PAGE_LEFT_RAIL_ENGLISH_160x600@160x600' },'gpt-leader-bottom':    { publisherId: '155984', adSlot: 'PUBMATIC_HOMEPAGE_BOTTOM_ENGLISH_300x250@300x250' },'gpt-vip-footer':       { publisherId: '155984', adSlot: 'PUBMATIC_VIEW_ITEM_PAGE_BASEBOARD_ENGLISH_728x90@728x90' }
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'rubicon',
+        cpmAdjustment: 1,
+        params: {
+            'ImageLeaderBoard':     { siteId: '45324', accountId: '12230', zoneId: '582460' },'gpt-r2s-vip':          { siteId: '45324', accountId: '12230', zoneId: '582460' },'gpt-posted-vip':       { siteId: '45324', accountId: '12230', zoneId: '582460' },'gpt-rightrail-top':    { siteId: '45324', accountId: '12230', zoneId: '582464' },'gpt-rightrail-bottom': { siteId: '45324', accountId: '12230', zoneId: '582466' },'gpt-vip-leader':       { siteId: '45324', accountId: '12230', zoneId: '582470' },'GPTBigbox':            { siteId: '45324', accountId: '12230', zoneId: '582472' },'gpt-leaderboard-top':  { siteId: '45324', accountId: '12230', zoneId: '582474' },'gpt-top-srp':          { siteId: '45324', accountId: '12230', zoneId: '582476' },'gpt-inline-srp':       { siteId: '45324', accountId: '12230', zoneId: '582478' },'gpt-inline2-srp':      { siteId: '45324', accountId: '12230', zoneId: '1549838' },'gpt-inline3-srp':      { siteId: '45324', accountId: '12230', zoneId: '1549840' },'gpt-leaderboard-base': { siteId: '45324', accountId: '12230', zoneId: '582480' },'gpt-skyscraper':       { siteId: '45324', accountId: '12230', zoneId: '582482' },'gpt-leader-bottom':    { siteId: '45324', accountId: '12230', zoneId: '582466' },'gpt-sticky':           { siteId: '45324', accountId: '12230', zoneId: '582474' },'gpt-vip-footer':       { siteId: '45324', accountId: '12230', zoneId: '1390056' }
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'triplelift',
+        cpmAdjustment: 1.0,
+        params: {
+            'ImageLeaderBoard':     { inventoryCode: 'Kijiji_Adflow_Desktop_InFeed_Top' },'gpt-r2s-vip':          { inventoryCode: 'Kijiji_Adflow_Desktop_InFeed_Top' },'gpt-posted-vip':       { inventoryCode: 'Kijiji_Adflow_Desktop_InFeed_Top'},'gpt-rightrail-top':    { inventoryCode: 'Kijiji_Homepage_Desktop_InFeed_Top'},'gpt-rightrail-bottom': { inventoryCode: 'Kijiji_Homepage_Desktop_InFeed_Bottom'},'gpt-vip-leader':       { inventoryCode: 'Kijiji_ViewItem_Desktop_InFeed_Top'},'GPTBigbox':            { inventoryCode: 'Kijiji_ViewItem_Desktop_InFeed_Bottom'},'gpt-vip-footer':       { inventoryCode: 'Kijiji_TRIPLELIFT_VIEW_ITEM_PAGE_BASEBOARD_ENGLISH_HDX'},'gpt-leaderboard-top':  { inventoryCode: 'Kijiji_SearchResults_Desktop_InFeed_Top'},'gpt-top-srp':          { inventoryCode: 'Kijiji_SearchResults_Mobile_inline1'},'gpt-inline-srp':       { inventoryCode: 'Kijiji_SearchResults_Mobile_inline2'},'gpt-inline2-srp':      { inventoryCode: 'Kijiji_SearchResults_desktop_inline3' },'gpt-inline3-srp':      { inventoryCode: 'Kijiji_SearchResults_desktop_inline4' },'gpt-leaderboard-base': { inventoryCode: 'Kijiji_SearchResults_Desktop_InFeed_Baseboard'},'gpt-skyscraper':       { inventoryCode: 'Kijiji_SearchResults_Desktop_InFeed_LeftRail'}
+        }
+    });
+
+    pbPartnerConfig.push({
+        id: 'smartadserver',
+        cpmAdjustment: 1.0,
+        params: {
+            'ImageLeaderBoard':     { siteId: '508684', pageId: '1599357', formatId: '112837' },'gpt-r2s-vip':          { siteId: '508684', pageId: '1599357', formatId: '112837' },'gpt-posted-vip':       { siteId: '508684', pageId: '1599357', formatId: '112837' },'gpt-rightrail-top':    { siteId: '508684', pageId: '1599354', formatId: '112838' },'gpt-rightrail-bottom': { siteId: '508684', pageId: '1599354', formatId: '112837' },'gpt-vip-leader':       { siteId: '508684', pageId: '1599356', formatId: '112839' },'GPTBigbox':            { siteId: '508684', pageId: '1599356', formatId: '112837' },'gpt-leaderboard-top':  { siteId: '508684', pageId: '1599355', formatId: '112843' },'gpt-top-srp':          { siteId: '508684', pageId: '1599355', formatId: '112838' },'gpt-inline-srp':       { siteId: '508684', pageId: '1599355', formatId: '112839' },'gpt-inline2-srp':      { siteId: '508684', pageId: '1599355', formatId: '112841' },'gpt-inline3-srp':      { siteId: '508684', pageId: '1599355', formatId: '112842' },'gpt-leaderboard-base': { siteId: '508684', pageId: '1599355', formatId: '112837' },'gpt-skyscraper':       { siteId: '508684', pageId: '1599355', formatId: '112840' },'gpt-vip-footer':       { siteId: '508684', pageId: '1599356', formatId: '112838' }
+        }
+    });
+</script>
+<script>
+var pbjs = pbjs || {};
+pbjs.que = pbjs.que || [];
+var isPageSRP = false;
+
+
+
+var PREBID_TIMEOUT = 1500;
+
+
+var prebidAdUnits = prebidAdUnits || [];
+var prebidSizes = prebidSizes || [];
+
+
+if (pbPartnerConfig.length > 0) {
+
+    Kj.Banners.Bidding.constructPrebidAdUnits();
+
+    
+    Kj.Banners.Bidding.enableBidderSettings();
+
+    
+    if (prebidAdUnits.length > 0) {
+
+        
+        pbjs.que.push(function() {
+            pbjs.setConfig({
+                sizeConfig: prebidSizes,
+                userSync: {
+                    iframeEnabled: true,
+                    filterSettings: {
+                        iframe: {
+                            bidders: '*',
+                            filter: 'include'
+                        }
+                    }
+                },
+                ortb2: {
+                    site: {
+                        search: ''
+                    }
+                }
+            });
+            pbjs.aliasBidder('appnexus', 'districtm');
+        });
+
+        
+        Kj.Banners.Bidding.requestBidsBeforeGPT(prebidAdUnits, PREBID_TIMEOUT);
+    }
+}
+</script>
+<script>
+        var prebidAdUnits = prebidAdUnits || [];
+        
+        $(document).ready(function () {
+            Kj.Banners.Init.pushAdSizeMaps();
+            Kj.Banners.Init.pushAdSlots();
+            Kj.Banners.Init.pushAdTargeting();
+
+            
+            googletag.cmd.push(function() {
+                googletag.pubads().set('adsense_background_color', 'FFFFFF');
+
+                
+
+                // If we're skipping prebid, init GPT service here, otherwise in "Kj.Banners.Bidding.requestBidsBeforeGPT()"
+                if (!prebidAdUnits.length) {
+                    googletag.enableServices();
+                }
+
+                
+            });
+        })
+</script>
+<!-- Google Tag Manager -->
+<script>
+var dataLayer = [{"p":{"t":"VIP","pl":"Wildebeest","v":"11866","lng":"en_CA","ua":"python-requests/2.31.0"},"c":{"c":{"id":37,"n":"Long Term Rentals"},"l0":{"id":0,"n":"Classifieds"},"l1":{"id":34,"n":"Real Estate"},"l2":{"id":30349001,"n":"For Rent"},"l3":{"id":37,"n":"Long Term Rentals"}},"l":{"c":{"id":1700173,"n":"Victoria"},"l0":{"id":0,"n":"Canada"},"l1":{"id":9007,"n":"British Columbia"},"l2":{"id":1700173,"n":"Victoria"}},"a":{"id":"1634176070","t":"OFFER","cdt":1663963856,"lpdt":1663963856,"dl":1220,"ic":8,"vc":0,"prc":{"amt":213500,"cur":"CAD","t":"FIXED"},"u":{"huid":"30804930182901601194406313992","at":"RE_PROFESSIONAL","tg":{"stg":"KCAN15957=1;CASINT5487=1;CASINT4862=0;KCAN19634=-99;KCAN19025=-99;KCAN5349=-99;KCA31520=-99;KCAN10715=-99;KCA34755=-99;KCA38991=1;KCA33151=1;KCAN810=0;KCAN6062=-99;KCA34744=0;KCAN1806=1;KCAN18529=-99;KCAN667=0;KCA34254=1;KCA38576=0;KCA34949=0;KCAN6084=-99;KCAN13748=-99;KCA35929=-99;KCAN3326=0;KCAN5479=1;KCAN909=-99;KCAN3671=1;KCA33073=0;KCA30726=-99;KCAN1050=-99;KCAN4308=-99;KCAN909=-99;KCAN810=0;KCAN6084=-99;KCAN6062=-99;KCAN5349=-99;KCAN4308=-99;KCAN3671=1;KCAN3326=0;KCAN19634=-99;KCAN19025=-99;KCAN18697=1;KCAN18529=-99;KCAN18206=0;KCAN1806=1;KCAN17895=0;KCAN15957=1;KCAN13748=-99;KCAN10715=0;KCAN1050=-99;KCA34949=0;CASINT5487=1;CASINT4862=0"}},"attr":{"airconditioning_s":"0","smokingpermitted_s":"2","storagelocker_s":"0","unittype_s":"apartment","bicycleparking_s":"0","agreementtype_s":"one-year","elevator_s":"0","gym_s":"0","audioprompts_s":"0","cabletv_s":"0","visualaids_s":"0","dishwasher_s":"1","heat_s":"0","braillelabels_s":"0","petsallowed_s":"1","numberbathrooms_s":"10","water_s":"0","numberbedrooms_s":"1","furnished_s":"0","laundryinunit_s":"0","numberparkingspots_s":"0","balcony_s":"1","hydro_s":"0","internet_s":"0","concierge_s":"0","fridgefreezer_s":"1","wheelchairaccessible_s":"0","twentyfourhoursecurity_s":"0","yard_s":"0","laundryinbuilding_s":"1","areainfeet_i":"0","barrierfreeentrancesandramps_s":"0","rentalsvirtualoptions_s":"onlineapplication","forrentbyhousing_s":"reprofessional","accessiblewashroomsinsuite_s":"0","pool_s":"0"},"cr":""},"u":{"li":false,"tg":{"stg":"KCAN15957=1;CASINT5487=1;CASINT4862=0;KCAN19634=-99;KCAN19025=-99;KCAN5349=-99;KCA31520=-99;KCAN10715=-99;KCA34755=-99;KCA38991=1;KCA33151=1;KCAN810=0;KCAN6062=-99;KCA34744=0;KCAN1806=1;KCAN18529=-99;KCAN667=0;KCA34254=1;KCA38576=0;KCA34949=0;KCAN6084=-99;KCAN13748=-99;KCA35929=-99;KCAN3326=0;KCAN5479=1;KCAN909=-99;KCAN3671=1;KCA33073=0;KCA30726=-99;KCAN1050=-99;KCAN4308=-99;KCAN909=-99;KCAN810=0;KCAN6084=-99;KCAN6062=-99;KCAN5349=-99;KCAN4308=-99;KCAN3671=1;KCAN3326=0;KCAN19634=-99;KCAN19025=-99;KCAN18697=1;KCAN18529=-99;KCAN18206=0;KCAN1806=1;KCAN17895=0;KCAN15957=1;KCAN13748=-99;KCAN10715=0;KCAN1050=-99;KCA34949=0;CASINT5487=1;CASINT4862=0"},"cdt":1475280000},"d":{"ua":"python-requests/2.31.0"},"ts":"2023-07-23 03:54:49.592+0000"}];
+    (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-W4V6');
+</script>
+<!-- End Google Tag Manager --><script src="//kijiji-ca.videoplayerhub.com/gallery.js" async></script>
+<script async src="https://www.google.com/adsense/search/ads.js"></script>
+<script>
+    (function(G,o,O,g){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
+        arguments)},G[g]['t']=1*new Date})(window,document,'script','_googCsa');
+</script>
+<script>
+    function adobeAAMOnLoad() {
+        var dataAAM = dataAAM || {};
+        var kijijiDil = DIL.create({
+            partner: 'kijiji',
+            visitorService: {
+                namespace: 'AE159CC25A134C820A495C97@AdobeOrg'
+            },
+            uuidCookie: { name: 'aam_uuid', days: 30 }
+        });
+
+        
+        gptAdTargeting.forEach(function(targeting) {
+            dataAAM[targeting.key] = targeting.value;
+        });
+
+        
+        kijijiDil.api.signals(dataAAM, 'c_').submit();
+    }
+</script>
+<script defer src="https://ca.classistatic.com/static/V/11866/js/third-party/visitorapi-v4.5.2.min.js"></script>
+<script defer onload="adobeAAMOnLoad()" src="https://ca.classistatic.com/static/V/11866/js/third-party/aam-dil-v9.4.js"></script>
+<script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "Organization",
+    "name" : "Kijiji Canada",
+    "alternateName" : "Kijiji",
+    "url" : "https://www.kijiji.ca/",
+    "sameAs" : [
+        "https://www.facebook.com/Kijiji.ca/",
+        "https://twitter.com/Kijiji",
+        "https://plus.google.com/+KijijiCanada",
+        "https://www.youtube.com/user/kijijicanadacorp",
+        "https://www.linkedin.com/company/kijiji-canadasmarketplace",
+        "https://www.wikidata.org/wiki/Q1741191"
+    ],
+    "logo": "https://ca.classistatic.com/static/V/11866/img/Kijiji-Canada-Logo-1.jpg"
+}
+</script>
+<!-- Sunset banner for leq IE 10 -->
+    <script defer>
+        $(document).ready(function () {
+            if (document.all) {
+                $('#MainContainer').prepend("<div id=\"IeSunset\">" +
+                    "<h3>Your browser is out of date. Change to a modern browser for a more secure web experience.</h3><ul>" +
+                    "<li class=\"moz\"><a href=\"https://www.mozilla.org/en-US/firefox/new/\" target=\"_blank\" rel=\"noopener noreferrer\"><h4>Mozilla Firefox <span>Download Here</span></h4></a></li>" +
+                    "<li class=\"chrome\"><a href=\"https://www.google.com/chrome/browser/desktop/\" target=\"_blank\" rel=\"noopener noreferrer\"><h4>Google Chrome<span>Download Here</span></h4></a></li>" +
+                    "<li class=\"ie\"><a href=\"https://support.microsoft.com/en-ca/help/17621/internet-explorer-downloads\" target=\"_blank\" rel=\"noopener noreferrer\"><h4>Internet Explorer<span>Download Here</span></h4></a></li>" +
+                    "</ul></div>");
+            }
+        });
+    </script>
+</head>
+
+<body
+    
+    class="responsive responsive-dp en"
+>
+
+
+    <div id="FesLoaderTop">
+      <script> window.baseUrl="//ca.classistatic.com/service-static/frontend-service"; </script>
+      <script> window.boxUrl="//www.kijiji.ca/"; </script>
+    </div>
+  <script>
+    var pageTrackingIdentifier = 'View Item Page';
+    var gaEventLabel = 'L1Cat=Real Estate;L2Cat=For Rent;L3Cat=Long Term Rentals;L1Location=Canada;L2Location=Victoria;posting_id=1634176070';
+</script>
+<script defer src="https://ca.classistatic.com/static/V/11866/js/sponsors/ads/ads.js"></script>
+<div id="MainContainer">
+        
+        <div class="fes-pagelet">
+          <div data-fes-id="header"><div class="sticky-outer-wrapper stickyHeader-1269884458 stickyHeader__inactive-2079802412"><div class="sticky-inner-wrapper " style="position:relative;top:0px;z-index:99999989"><header class="headerElement-442944742"><nav aria-label="Skip Link"><a class="skipToMain-3988383456 button-1997310527 button__greenIcon-556989088 button__medium-1066667140" href="#mainPageContent">Skip to main content</a></nav><div class="printLogo-4110822992"><div class="logo-3282416437" style="visibility:hidden"><a class="logoLink-1425315727" href="/" aria-label="Kijiji Homepage"><svg aria-hidden="true" class="icon-459822882 logoLinkIcon-1625489109" height="100%" width="100%" focusable="false"><use xlink:href="#kijiji-logo"></use></svg><svg aria-hidden="true" class="icon-459822882 logoLinkIconMobile-4156093262" height="100%" width="100%" focusable="false"><use xlink:href="#kijiji-logo-mobile"></use></svg></a></div></div><div class="overlay-2121913162" role="button" tabindex="0"></div><div class="headerContainer-471773205"><div class="headerWrapper-3599732097"><div class="logoWrapper-3966123073"><div class="logo-3282416437" style="visibility:hidden"><a class="logoLink-1425315727" href="/" aria-label="Kijiji Homepage"><svg aria-hidden="true" class="icon-459822882 logoLinkIcon-1625489109" height="100%" width="100%" focusable="false"><use xlink:href="#kijiji-logo"></use></svg><svg aria-hidden="true" class="icon-459822882 logoLinkIconMobile-4156093262" height="100%" width="100%" focusable="false"><use xlink:href="#kijiji-logo-mobile"></use></svg></a></div></div><div class="searchBarWrapper-3397949630"><form class="searchBar-3410584230" action="/b-search.html" role="search"><input type="hidden" name="formSubmit" value="true"/><input type="hidden" name="rb" value="true"/><input type="hidden" name="adIdRemoved" value=""/><input type="hidden" name="adPriceType" value=""/><input type="hidden" name="brand" value=""/><input type="hidden" name="carproofOnly" value="false"/><input type="hidden" name="categoryName" value=""/><input type="hidden" name="cpoOnly" value="false"/><input type="hidden" name="gpTopAd" value="false"/><input type="hidden" name="highlightOnly" value="false"/><input type="hidden" name="locationId" value="1700173"/><input type="hidden" name="minPrice" value=""/><input type="hidden" name="maxPrice" value=""/><input type="hidden" name="origin" value=""/><input type="hidden" name="pageNumber" value="1"/><input type="hidden" name="searchView" value="LIST"/><input type="hidden" name="sortByName" value="dateDesc"/><input type="hidden" name="userId" value=""/><input type="hidden" name="urgentOnly" value="false"/><div class="wrapper-2241040119"><div class="wrapper-125249956 formFieldKeyword-4166350882" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="Algolia-Selector-menu" aria-labelledby="Algolia-Selector-label"><input type="hidden" value="hidden-stuff"/><div class="field-2633259492"><div class="inputContainer-2633259492"><span aria-hidden="true"><svg class="icon-459822882 icon-835106583 inputIcon-3384330155" height="100%" width="100%"><use xlink:href="#icon-myadssearch"></use></svg></span><input class="input-2398582227 inputWithIcon-3423116769 inputKeyword-1258415231" id="SearchKeyword" value="" placeholder="What are you looking for?" autoComplete="off" aria-autocomplete="list" aria-controls="Algolia-Selector-menu" aria-labelledby="Algolia-Selector-label" maxLength="200" name="keywords" variant="default"/></div></div></div></div><div class="container-3952505574" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="SearchCategorySelector-label"><button type="button" role="button" aria-label="Category, undefined" aria-haspopup="true" data-toggle="true" class="label-2246511109" data-id="SearchCategory" data-testid="categoryLabel"></button><svg aria-hidden="true" class="icon-459822882 icon-791659943 chevronIcon-2200649960" height="100%" width="100%"><use xlink:href="#icon-dropdown-chevron-box"></use></svg><div data-testid="categoryListWrapper" class="categoryListWrapper-3771689168"><ul class="categoryList-3798401611" role="menu"></ul></div></div><input type="hidden" id="categoryId" name="categoryId" value="0"/><input type="hidden" id="dc" name="dc" value="true"/><button internal-name="Victoria" id="SearchLocationPicker" type="button" aria-label="Location, Victoria" class="locationModalTrigger-555572005"><div class="iconWrapper-1359463758"><svg aria-hidden="true" class="icon-459822882 icon-2889047399" height="100%" width="100%" focusable="false"><use xlink:href="#icon-location-new"></use></svg></div><span class="text-3814801860">Victoria, British Columbia</span></button><button data-qa-id="header-button-submit" name="SearchSubmit" class="searchSubmit-1336592678 button-1997310527 button__futureSecondary-3729380201 button__medium-1066667140" type="submit">Search</button></form></div><div class="headerTools-3815430746"><div class="headerButtons-1285290965"><a class="headerLinkLanguage-203031519" rel="nofollow" href="/?siteLocale=fr_CA" data-qa-id="language-toggle">fr</a><div class="root-835198095 root__loggedOut-3587998771"><div class="root-882857460"><a class="link-3970392289 link__default-1151936189 register-4281208362" rel="nofollow" href="/t-user-registration.html?targetUrl=L3YtYXBhcnRtZW50cy1jb25kb3MvdmljdG9yaWEtYmMvMS1iZWRyb29tLWFwYXJ0bWVudHMtZm9yLXJlbnQtaW4tdmljdG9yaWEvMTYzNDE3NjA3MF55b3ZySExCZURLYWVWYXVWV2lvOEl3PT0-" title="Register">Register</a><span class="or-4281208362"> <!-- -->or<!-- --> </span><a class="link-3970392289 link__default-1151936189" rel="nofollow" href="/t-login.html?targetUrl=L3YtYXBhcnRtZW50cy1jb25kb3MvdmljdG9yaWEtYmMvMS1iZWRyb29tLWFwYXJ0bWVudHMtZm9yLXJlbnQtaW4tdmljdG9yaWEvMTYzNDE3NjA3MF55b3ZySExCZURLYWVWYXVWV2lvOEl3PT0-" title="Sign In">Sign In</a></div></div><a class="headerButtonPostAd-1524038143" rel="nofollow" data-qa-id="header-link-post-ad" href="/p-select-category.html" aria-label="Post ad">Post ad</a></div></div></div></div></header></div></div></div>
+          <script type="text/javascript">if(rehydrate===undefined){var rehydrate={};}rehydrate["header"]={componentPath:"Shared/Header/Header",props:{"kijijiWebappUrl":"https:\u002F\u002Fwww.kijiji.ca","isStickyHeaderActive":false}};</script>
+        </div>
+      <div id="mainPageContent" tabindex="-1">
+            
+
+
+
+<input type="hidden" id="watchlistXsrf" name="ca.kijiji.xsrf.token" value="1690084488445.2243e1d86e456d25d2f8e5e83041a689c92ed5cc1a6f663e25e7128638b523b7" />
+
+        <div class="fes-pagelet">
+          <div data-fes-id="VIP"><div><div id="ViewItemPage" class="page-4182276102"><div></div><div><div class="sticky-outer-wrapper"><div class="sticky-inner-wrapper " style="position:relative;top:0px;z-index:998"><div class="leaderboard-158664762"><div><div class="banner-2623503948 banner__LEADERBOARD_VIP_LEADER-38807151"><div id="gpt-vip-leader"></div></div></div></div></div></div></div><div class="rentalsBreadcrumbsContainer-1414219691"><div class="breadcrumbs-320621489 breadcrumbs__noUnderline-2416897870 breadcrumbs__noIndent-1054789150 breadcrumbs__displayWithActionItems-2303703518" aria-label="Breadcrumb"><nav aria-label="Breadcrumb" class="crumbWrapper-2893329203"><button type="button" class="crumbButton-554820449">•••</button><ol class="crumbList-626990029" itemscope="" itemType="http://schema.org/BreadcrumbList"><li class="crumbItem-889225952" itemscope="" itemType="http://schema.org/ListItem" itemProp="itemListElement"><a class="crumbLink-2670265168" itemProp="item" href="//www.kijiji.ca/h-victoria-bc/1700173"><span itemProp="name">Home</span></a><meta itemprop="position" content="1"/></li><li class="crumbItem-889225952" itemscope="" itemType="http://schema.org/ListItem" itemProp="itemListElement"><a class="crumbLink-2670265168" itemProp="item" href="//www.kijiji.ca/b-real-estate/victoria-bc/c34l1700173"><span itemProp="name">Real Estate</span></a><meta itemprop="position" content="2"/></li><li class="crumbItem-889225952" itemscope="" itemType="http://schema.org/ListItem" itemProp="itemListElement"><a class="crumbLink-2670265168" itemProp="item" href="//www.kijiji.ca/b-for-rent/victoria-bc/c30349001l1700173"><span itemProp="name">For Rent</span></a><meta itemprop="position" content="3"/></li><li class="crumbItem-889225952" itemscope="" itemType="http://schema.org/ListItem" itemProp="itemListElement"><a class="crumbLink-2670265168" itemProp="item" href="//www.kijiji.ca/b-apartments-condos/victoria-bc/c37l1700173"><span itemProp="name">Long Term Rentals in Victoria</span></a><meta itemprop="position" content="4"/></li><li class="currentCrumb-3831268168">Ad ID <a class="adId-4111206830" href="javascript: void(0);" tabindex="-1" aria-current="page">1634176070</a></li></ol></nav></div><div class="staticContainer-665391483"><div class="actions-3794334001 actions__static-627561917"><div class="optionalActions-158508692 optionalActions__static-4017162460"><button aria-label="Click to add to My Favourites" aria-pressed="false" data-testid="favourite-button" title="Click to add to My Favourites" class="sc-cxFLGX ecuFmI"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M19.221 5.914c-1.605-1.686-4.413-1.785-6.118-.198l-.2.198-.903.794-.903-.893C9.493 4.13 6.684 4.03 4.98 5.715l-.2.2c-1.705 1.784-1.705 4.66 0 6.445l6.82 6.942c.1.099.2.198.401.198.1 0 .3 0 .401-.1l6.82-6.94c1.705-1.885 1.705-4.76 0-6.546z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><button aria-label="Report Ad" title="Report Ad" class="sc-cxFLGX ecuFmI"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M7.5 6.4c.506-.1.91-.6 1.315-.9.303-.3.809-.5 1.213-.5.506 0 .91.1 1.214.5.606.5 1.314.7 2.123.7.81 0 1.517-.2 2.124-.7.202-.1.303-.4 1.011-.6v6c-1.011.2-1.416.3-1.82.6-.304.3-.81.5-1.214.5-.505 0-.91-.1-1.213-.4-.304-.2-.607-.4-.91-.5-.203-.1-.405-.1-.607-.2M7.5 19V4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div><div class="printButtonContainer-256077194"><button aria-label="Print this ad" class="sc-cxFLGX ecuFmI"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M6.2 16.5H4.5c-.6 0-1-.4-1-1v-6c0-.6.4-1 1-1h15c.6 0 1 .4 1 1v6c0 .6-.4 1-1 1H18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.9 21.5H6.4c-.3 0-.6-.3-.6-.6v-.1l.6-4.9c.1-.5.5-.9 1-.9h9.1c.5 0 .9.4 1 .9l1 4.9c0 .4-.2.7-.6.7zm0 0c.1 0 .1 0 0 0z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.9 21.5H6.4c-.3 0-.6-.3-.6-.6v-.1l.6-4.9c.1-.5.5-.9 1-.9h9.1c.5 0 .9.4 1 .9l1 4.9c0 .4-.2.7-.6.7zm0 0c.1 0 .1 0 0 0zM7 4.5v-1c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v5M10.2 12h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div></div></div><div class="defaultMessages-2166500857 defaultMessages__newRentals-1965346928 noLeftMargin-1339858705"><div id="messages" class="messageJumpAnchor-4008899198"></div><span></span></div><div><div class="itemTitleWrapper-4111598823 itemTitleWrapper__newRentals-1965346928 noLeftMargin-1339858705"><div class="mainColumn-1522885425"><div><h1 class="title-2323565163">1 Bedroom Apartments for Rent in Victoria</h1><div class="priceContainer-1419890179"><span class="currentPrice-2842943473"><span content="2135.">$2,135</span></span></div></div></div><div class="sidebarColumn-1522885425"><div class="itemMeta-4167503528"><div class="datePosted-383942873">Posted <time dateTime="2023-07-23T03:24:44.000Z" title="July 23, 2023 3:24 AM">30 minutes ago</time></div><div></div><div class="locationContainer-2867112055"><svg class="icon-459822882 locationPin-3094438136" height="100%" width="100%"><use xlink:href="#icon-locationpin"></use></svg><span itemProp="address" itemscope="" itemType="http://schema.org/PostalAddress" class="address-3617944557">1701 Cedar Hill X, Victoria, BC, V8X 5A8</span><a class="link-3970392289 link__default-1151936189 mapLink-1863077726" href="#map">(View Map)</a></div></div></div></div><main id="vip-body" class="itemInfo-3918032670 itemInfo__newRentals-717076762 noLeftMargin-1339858705"><div class="heroImageContainer-3252084013 heroImageContainer__newRentals-633739784"><div><div role="presentation" class="heroImage-1893837579 heroImage__newRentals-1455708478 heroMainInline-1487174807 heroMainInline__newRentals-2231351657" data-click-type="heroImage" id="mainHeroImage"><div class="socialButtons"></div><div class="generalOverlay-3042614009"></div><div class="container-4202182046 heroImageBackgroundContainer-811153256 backgroundImage mainImage"><picture><source srcSet="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/50/50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-640-webp" type="image/webp"/><img class="image-3484370594 heroImageBackground-2776220296" src="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/50/50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-640-jpg" alt="1 Bedroom Apartments for Rent in Victoria in Long Term Rentals in Victoria" fetchPriority="high"/></picture></div></div><div class="thumbnailContainer-1024822013 thumbnailContainer__newRentals-415726552"><div role="presentation" class="heroImage-1893837579 heroImage__newRentals-1455708478 heroImageSmall-208861679 heroImageSmall__newRentals-2177074068 thumbnailOne-1964602090 thumbnailOne__newRentals-3295562459" data-click-type="heroImage"><div class="generalOverlay-3042614009"></div><div class="container-4202182046 heroImageBackgroundContainer-811153256 backgroundImage"><picture><source srcSet="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/db/dbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-640-webp" type="image/webp"/><img class="image-3484370594 heroImageBackground-2776220296" src="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/db/dbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-640-jpg" alt="1 Bedroom Apartments for Rent in Victoria in Long Term Rentals in Victoria - Image 2"/></picture></div></div><div role="presentation" class="heroImage-1893837579 heroImage__newRentals-1455708478 heroImageSmall-208861679 heroImageSmall__newRentals-2177074068 thumbnailTwo-2705005320 thumbnailTwo__newRentals-2173385289" data-click-type="heroImage"><div class="generalOverlay-3042614009"></div><div class="container-4202182046 heroImageBackgroundContainer-811153256 backgroundImage"><picture><source srcSet="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f9/f9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-640-webp" type="image/webp"/><img class="image-3484370594 heroImageBackground-2776220296" src="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f9/f9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-640-jpg" alt="1 Bedroom Apartments for Rent in Victoria in Long Term Rentals in Victoria - Image 3"/></picture></div></div><div role="presentation" class="heroImage-1893837579 heroImage__newRentals-1455708478 heroImageSmall-208861679 heroImageSmall__newRentals-2177074068 thumbnailThree-1581326477 thumbnailThree__newRentals-247088299" data-click-type="heroImage"><div class="lastHeroOverlay-602159392"><div class="moreImages-531545174">+5</div></div><div class="container-4202182046 heroImageBackgroundContainer-811153256 backgroundImage"><picture><source srcSet="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/19/1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-640-webp" type="image/webp"/><img class="image-3484370594 heroImageBackground-2776220296" src="https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/19/1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-640-jpg" alt="1 Bedroom Apartments for Rent in Victoria in Long Term Rentals in Victoria - Image 4"/></picture></div></div></div></div></div><div class="realEstateTitle-1440881021"><div class="titleRow-4059548442"><h1 class="title-2323565163">1 Bedroom Apartments for Rent in Victoria</h1><div class="priceWrapper-1165431705"><span content="2135.">$2,135</span><span class="utilities-3542420827">No Utilities Included</span></div></div><div class="locationRow-2870378686"><div class="locationContainer-2867112055"><svg class="icon-459822882 locationPin-3094438136" height="100%" width="100%"><use xlink:href="#icon-locationpin"></use></svg><span itemProp="address" itemscope="" itemType="http://schema.org/PostalAddress" class="address-3617944557">1701 Cedar Hill X, Victoria, BC, V8X 5A8</span><a class="link-3970392289 link__default-1151936189 mapLink-1863077726" href="#map">(View Map)</a></div><div class="datePosted-383942873">Posted <time dateTime="2023-07-23T03:24:44.000Z" title="July 23, 2023 3:24 AM">30 minutes ago</time></div><div></div></div><div class="unitRow-1281171205"><div class="titleAttributes-2381855425"><li class="noLabelAttribute-2328647506"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-unittype"></use></svg><span class="noLabelValue-3861810455">Apartment</span></li><li class="noLabelAttribute-2328647506"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-numberbedrooms"></use></svg><span class="noLabelValue-3861810455">Bedrooms: 1</span></li><li class="noLabelAttribute-2328647506"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-numberbathrooms"></use></svg><span class="noLabelValue-3861810455">Bathrooms: 1</span></li></div></div></div><div class="itemAttributeCarousel-1767938195"><div class="tabWrapper-947852076"><button class="tab-1547321214 activeTab-420980223" type="button">Overview</button><button class="tab-1547321214" type="button">The Unit</button><button class="tab-1547321214" type="button">The Building</button></div><div class="gradientScrollWrapper-2607347244"><div class="gradientScrollContainer-3063824911"><div class="itemAttributeCards-2416600896"><div class="root-2377010271 light-3420168793 attributeCard-1535740193"><h3 class="attributeCardTitle-4135421267">Overview</h3><ul class="list-1757374920 disablePadding-1318173106"><li class="attributeGroupContainer-2199640266"><svg class="icon-459822882 attributeGroupIcon-3454750106" height="100%" width="100%"><use xlink:href="#icon-attribute-group-utilities"></use></svg><div><h4 class="attributeGroupTitle-2142319834">Utilities Included</h4><ul class="list-1757374920 disablePadding-1318173106">Not Included</ul></div></li><li class="attributeGroupContainer-2199640266"><svg class="icon-459822882 attributeGroupIcon-3454750106" height="100%" width="100%"><use xlink:href="#icon-attribute-group-wifiandmore"></use></svg><div><h4 class="attributeGroupTitle-2142319834">Wi-Fi and More</h4><ul class="list-1757374920 disablePadding-1318173106">Not Included</ul></div></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-numberparkingspots"></use></svg><dl><dt class="twoLinesLabel-3766429502">Parking Included</dt><dd class="twoLinesValue-2815147826">0</dd></dl></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-agreementtype"></use></svg><dl><dt class="twoLinesLabel-3766429502">Agreement Type</dt><dd class="twoLinesValue-2815147826">1 Year</dd></dl></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-petsallowed"></use></svg><dl><dt class="twoLinesLabel-3766429502">Pet Friendly</dt><dd class="twoLinesValue-2815147826">Yes</dd></dl></li></ul></div><div class="root-2377010271 light-3420168793 attributeCard-1535740193"><h3 class="attributeCardTitle-4135421267">The Unit</h3><ul class="list-1757374920 disablePadding-1318173106"><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-areainfeet"></use></svg><dl><dt class="twoLinesLabel-3766429502">Size (sqft)</dt><dd class="twoLinesValue-2815147826">Not Available</dd></dl></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-furnished"></use></svg><dl><dt class="twoLinesLabel-3766429502">Furnished</dt><dd class="twoLinesValue-2815147826">No</dd></dl></li><li class="attributeGroupContainer-2199640266"><svg class="icon-459822882 attributeGroupIcon-3454750106" height="100%" width="100%"><use xlink:href="#icon-attribute-group-appliances"></use></svg><div><h4 class="attributeGroupTitle-2142319834">Appliances</h4><ul class="list-1757374920 disablePadding-1318173106"><li class="groupItem-4214219251"></li><li class="groupItem-4214219251 available-731611581">Laundry (In Building)</li><li class="groupItem-4214219251 available-731611581">Dishwasher</li><li class="groupItem-4214219251 available-731611581">Fridge / Freezer</li></ul></div></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-airconditioning"></use></svg><dl><dt class="twoLinesLabel-3766429502">Air Conditioning</dt><dd class="twoLinesValue-2815147826">No</dd></dl></li><li class="attributeGroupContainer-2199640266"><svg class="icon-459822882 attributeGroupIcon-3454750106" height="100%" width="100%"><use xlink:href="#icon-attribute-group-outdoorspace"></use></svg><div><h4 class="attributeGroupTitle-2142319834">Personal Outdoor Space</h4><ul class="list-1757374920 disablePadding-1318173106"><li class="groupItem-4214219251"></li><li class="groupItem-4214219251 available-731611581">Balcony</li></ul></div></li><li class="twoLinesAttribute-2286252302"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-smokingpermitted"></use></svg><dl><dt class="twoLinesLabel-3766429502">Smoking Permitted</dt><dd class="twoLinesValue-2815147826">Outdoors only</dd></dl></li></ul></div><div class="root-2377010271 light-3420168793 attributeCard-1535740193"><h3 class="attributeCardTitle-4135421267">The Building</h3><ul class="list-1757374920 disablePadding-1318173106"><li class="attributeGroupContainer-2199640266"><svg class="icon-459822882 attributeGroupIcon-3454750106" height="100%" width="100%"><use xlink:href="#icon-attribute-group-amenities"></use></svg><div><h4 class="attributeGroupTitle-2142319834">Amenities</h4><ul class="list-1757374920 disablePadding-1318173106">Not Included</ul></div></li></ul></div></div></div></div></div><div class="root-2377010271 light-3420168793 card-745541139"><div class="showMoreWrapper-1159407536 showMoreWrapper__newRentals-1768917462 showMoreWrapper__expanded-1937038139"><div class="showMoreChild-3420331552 showMoreChild__newRentals-917604537" style="height:190px;overflow:hidden"><div class="descriptionContainer-3460900372"><h3 class="title-1621348837">Description</h3><div><p>Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. <br><br>Fraser Tolmie is situated at the base of Mount Tolmie and only steps away from University of Victoria and from local retail amenities, restaurants and grocery stores. Please note: as all available suites are currently under renovation, availability dates are approximations only and subject to change at any time. Please inquire with the Leasing Specialist for more information. Please note: This property will only be offering virtual tours until the specified availability for each listing. We appreciate your understanding.</p>Building Amenities & Benefits<ul><li>Close Proximity to Park</li><li>Hot Tub</li><li>Sauna</li><li>Shared Garden</li><li>Laundry Room</li><li>Resident Lounge</li><li>Swimming Pool</li><li>Bicycle Storage</li><li>Underground Parking</li></ul><em>This property is professionally managed by Devon Properties Ltd.</em></div></div></div><div class="fadeOut-1831393242 fadeOut__hidden-961765701 fadeOut__newRentals-2283058449"></div><button class="showMoreButton-1963466823 showMoreButton__hidden-961765701" type="button">Show more</button></div></div><div class="container-320606823 container__rentals-2320748101"><svg class="icon-459822882 rentalsIcon-4002529155" height="100%" width="100%"><use xlink:href="#additional-options-badge"></use></svg><h4 class="title-4147477923 title__rentals-2078693626">Additional Options</h4><div class="description-1016185941">This property offers the following features; please reach out to the poster for more information.</div><ul class="attributeList-157950678"><li class="noLabelAttribute-2328647506"><svg class="icon-459822882 attributeIcon-1499443538 attributeIcon__condensed-4247835132" height="100%" width="100%"><use xlink:href="#icon-attributes-onlineapplication"></use></svg><span class="noLabelValue-3861810455">Online Application</span></li></ul></div><div class="itemInfoSidebar-408428561 itemInfoSidebar__newRentals-3379548915"><div class="sticky-outer-wrapper bigbox-1455796479"><div class="sticky-inner-wrapper " style="position:relative;top:0px"><div><div class="banner-2623503948 banner__BIGBOX-65379205"><div id="GPTBigbox"></div></div></div></div></div><div><div class="root-2377010271 light-3420168793 container-3656255093"><a class="mapLink-1161006890" href="#map"><img class="mapImage-52463451" alt="1701 Cedar Hill X, Victoria, BC, V8X 5A8"/></a><div class="header-683592183 headerWithAvatar-1552310546"><a class="avatarLink-1468260228" href="/o-fraser-tolmie-1701-cedar-hill-x/1025772832/listings/1?referral=organic"><div class="root-150276580"><div class="avatar-46216517 compactAvatar-3107478725 color-red-432684940" style="width:40px;height:40px">K</div></div></a><div><a class="link-2133317475" href="/o-fraser-tolmie-1701-cedar-hill-x/1025772832/listings/1?referral=organic">Kijiji User</a></div></div><div class="lines-2025675865"><div class="line-2791721720"><svg class="icon-459822882 icon-2333125092" height="100%" width="100%"><use xlink:href="#icon-tag-2"></use></svg>Professional</div><div class="line-2791721720" data-qa-id="active-listings-stat-line"><svg class="icon-459822882 icon-2333125092" height="100%" width="100%"><use xlink:href="#icon-listing"></use></svg><span>1</span> listing</div></div><div class="elementContainer-1564768355"><div class="profileItem-324401486"><button class="phoneNumberContainer-69344174 phoneShowNumberButton-1052915314 button-1997310527 button__medium-1066667140" type="button"><svg class="icon-459822882 phoneIcon-381899786" height="100%" width="100%"><use xlink:href="#icon-phone"></use></svg><span aria-hidden="true" class="phoneNumberStart-404348366"><span>&#x28;&#x58;&#x58;&#x58;&#x29;&#x20;&#x58;&#x58;&#x58;&#x2d;</span> <!-- -->XXXX</span><span class="revealCopy-3312312496">Reveal <span class="visuallyHidden-1638106282">phone number</span></span></button></div></div><div class="grid-2780165089"><div data-qa-id="responsiveness-stat-block" class="statBlock-477844586"><div class="text-910784403">--</div><div class="label-4144580648">avg reply</div></div><div data-qa-id="reply-rate-stat-block" class="statBlock-477844586"><div class="text-910784403">--</div><div class="label-4144580648">reply rate</div></div><div data-qa-id="member-since-stat-block" class="statBlock-477844586"><div class="text-910784403">--</div><div class="label-4144580648">on Kijiji</div></div></div></div></div><div class="container-962089409"><div style="width:100px" class="line-330984097 line__normal-2158048688"></div><div style="width:100%" class="line-330984097 line__heavy-2431990401"></div><div style="width:100%" class="line-330984097 line__heavy-2431990401"></div><div style="width:100%" class="line-330984097 line__heavier-3816919646"></div></div></div><div class="sponsored-2251729188 sponsored__newRentals-623005104"><h4 class="heading-4169867270">Sponsored Advertisements</h4><div class="images-3795505126"><div class="imageA-2254191039"><div><div class="banner-2623503948 banner__doNotCenter-2640075546 banner__isCollapsible-1123499182 banner__textLeft-1775489238 banner__IMAGE_SPONSOR-2375018279"><div id="gpt-sponsored-left"></div></div></div></div><div class="imageB-2254191039"><div><div class="banner-2623503948 banner__doNotCenter-2640075546 banner__isCollapsible-1123499182 banner__textLeft-1775489238 banner__IMAGE_SPONSOR-2375018279"><div id="gpt-sponsored-right"></div></div></div></div></div><div class="AFS-2709457781"><div><div id="AFSBottom" style="padding:0"></div></div></div><div class="AFS-2709457781"><div class="AFSShop-3845507937"><div id="AFSShop" style="padding:0"></div></div></div></div></main></div><div class="safetyWarningContainer-148731728"><div><div class="banner-2623503948 banner__VIP_FOOTER-65379205"><div id="gpt-vip-footer"></div></div></div><div class="safetyText-133708707">Take steps to make your Kijiji transactions as secure as possible by following our suggested safety tips.<!-- --> <a class="link-3970392289 link__default-1151936189" rel="noopener noreferrer" href="https://help.kijiji.ca/helpdesk/safety/safety-at-kijiji" target="_blank">Read our Safety Tips</a></div></div></div></div></div>
+          <script type="text/javascript">if(rehydrate===undefined){var rehydrate={};}rehydrate["VIP"]={componentPath:"ViewItem/ViewItemPage",props:{"userReviewsEnabled":false}};</script>
+        </div>
+      </div>
+
+        </div>
+    
+        <div class="fes-pagelet">
+          <div data-fes-id="footer"><footer id="Footer" class="container-221624139" aria-labelledby="footerHeading"><h2 id="footerHeading" class="srOnly-623785121">Footer links</h2><div class="linkContainer-2510787684"><div class="column-704037383"><h3 class="columnTitle-1084289935">Kijiji</h3><ul class="columnList-4012910607"><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://www.kijiji.ca/kijijicentral/general/about-us/?utm_source=Kijiji&amp;utm_medium=Footer">About</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://jobs.ebayclassifiedsgroup.com/">Join Us</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/basics/benefits-of-registering">Member Benefits</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://business.kijiji.ca">Advertise on Kijiji</a></li></ul></div><div class="column-704037383"><h3 class="columnTitle-1084289935">Explore</h3><ul class="columnList-4012910607"><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" rel="noopener noreferrer" href="https://www.kijijiautos.ca/?utm_source=kijiji&amp;utm_medium=referral&amp;utm_campaign=footer" target="_blank">Kijiji Autos<span class="srOnly-4006513121">(opens in a new tab)</span></a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://www.kijiji.ca/kijijicentral/?utm_source=Kijiji&amp;utm_medium=Footer">Kijiji Central</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/performance?utm_source=Kijiji&amp;utm_medium=footer">Tools to promote ads</a></li></ul></div><div class="column-704037383"><h3 class="columnTitle-1084289935">Info</h3><ul class="columnList-4012910607"><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/policies/kijiji-terms-of-use">Terms of Use</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/policies/kijiji-privacy-policy">Privacy Policy</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/policies/posting-policies">Posting Policy</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/policies/kijiji-privacy-policy">AdChoices</a><div class="tipContainer-473599471" data-testid="tooltip"><button type="button" class="infoCircle-63792085" aria-labelledby="tooltip-footerlinkadchoice" aria-expanded="false"><svg class="icon-459822882" height="16px" width="16px"><use xlink:href="#icon-tooltip"></use></svg></button></div></li></ul></div><div class="column-704037383"><h3 class="columnTitle-1084289935">Support</h3><ul class="columnList-4012910607"><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/">Help Desk</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="?siteLocale=fr_CA">Kijiji en français</a></li><li class="columnItem-372683642"><a class="link-3970392289 link__greyGreen-3667476161 columnLink-3154419905" href="https://help.kijiji.ca/helpdesk/policies/multi-year-accessibility-plan">Accessibility</a></li><li class="columnItem-372683642"><label class="label-563089609 columnLink-3154419905 contrastSwitcher-3661153409" for="ContrastSwitch"><span class="labelText-1345362785">Change Contrast</span><div class="switch-3222151189"><input type="checkbox" class="input-2530852524" id="ContrastSwitch"/><span class="slider-2492278371"></span></div></label></li></ul></div></div><div class="badgeContainer-1610635672"><div class="storeIcons-3516749290"><a class="link-3970392289 link__default-1151936189" rel="noopener noreferrer" href="https://itunes.apple.com/ca/app/kijiji-free-local-classifieds/id318979520" target="_blank" aria-label="Download the Kijiji iOS App on the App Store (opens in a new tab)"><div class="container-545332043" role="button" tabindex="0"><svg aria-hidden="true" class="icon-459822882 appStore-3901547843" height="100%" width="100%"><use xlink:href="#icon-appstore"></use></svg></div></a><a class="link-3970392289 link__default-1151936189" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.ebay.kijiji.ca" target="_blank" aria-label="Get the Kijiji Android App on Google Play (opens in a new tab)"><div class="container-545332043" role="button" tabindex="0"><svg aria-hidden="true" class="icon-459822882 googlePlay-2433789617" height="100%" width="100%"><use xlink:href="#icon-googleplay"></use></svg></div></a></div><div class="socialMediaIcons-1033550445"><div><a class="link-3970392289 link__default-1151936189 socialMediaIconContainer-2478597958 facebook-1857630538" rel="noopener noreferrer" href="https://www.facebook.com/Kijiji.ca" target="_blank" aria-label="Facebook (opens in a new tab)"><svg aria-hidden="true" class="icon-459822882 facebookIcon-3837037485" height="100%" width="100%"><use xlink:href="#icon-footer-facebook"></use></svg></a><a class="link-3970392289 link__default-1151936189 socialMediaIconContainer-2478597958 instagram-1476038044" rel="noopener noreferrer" href="https://www.instagram.com/kijijicanada/" target="_blank" aria-label="Instagram (opens in a new tab)"><svg aria-hidden="true" class="icon-459822882 instagramIcon-3144288999" height="100%" width="100%"><use xlink:href="#icon-footer-instagram"></use></svg></a><a class="link-3970392289 link__default-1151936189 socialMediaIconContainer-2478597958 twitter-1375412391" rel="noopener noreferrer" href="https://twitter.com/Kijiji" target="_blank" aria-label="Twitter (opens in a new tab)"><svg aria-hidden="true" class="icon-459822882 twitterIcon-2392310232" height="100%" width="100%"><use xlink:href="#icon-footer-twitter"></use></svg></a></div><div class="iconGroupB-693088378"><a class="link-3970392289 link__default-1151936189 socialMediaIconContainer-2478597958 kijijiCentral-1338662062" rel="noopener noreferrer" href="https://www.kijiji.ca/kijijicentral/?utm_source=Kijiji&amp;utm_medium=FooterIcon" target="_blank" aria-label="Kijiji Central (opens in a new tab)"><svg aria-hidden="true" class="icon-459822882 kijijiCentralIcon-2735843417" height="100%" width="100%"><use xlink:href="#icon-footer-kijijicentral"></use></svg></a><a class="link-3970392289 link__default-1151936189 socialMediaIconContainer-2478597958 youtube-120813017" rel="noopener noreferrer" href="https://www.youtube.com/kijijicanadacorp" target="_blank" aria-label="YouTube (opens in a new tab)"><svg aria-hidden="true" class="icon-459822882 youtubeIcon-3637872524" height="100%" width="100%"><use xlink:href="#icon-footer-youtube"></use></svg></a></div></div></div><div class="copyright-2418027893"><p class="copyrightText-2350281792"></p><p class="copyrightText-2350281792">All rights reserved. Google, Google Play, YouTube and other marks are trademarks of Google Inc.</p></div></footer></div>
+          <script type="text/javascript">if(rehydrate===undefined){var rehydrate={};}rehydrate["footer"]={componentPath:"Shared/Footer",props:{}};</script>
+        </div>
+      <div class="modal-overlay"></div>
+
+
+    <div id="FesLoader">
+      
+      <script type="text/javascript">window.__data={"autosLandingPage":{"loading":{"makes":{"failure":false,"pending":false,"success":false},"models":{"failure":false,"pending":false,"success":false},"inventory":{"failure":false,"pending":false,"success":false}},"makes":[],"models":[],"inventoryCount":null},"config":{"toggleHomepageFeed":true,"requestUrl":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070","toggleCarsTrucksMenuLink":false,"toggleCtmVipBanner":true,"groupHomepageMixTest":"KCAN-1708-C","toggleAppDownloadBanner":false,"toggleCarHistoryAutosRedesign":false,"toggleDefaultRadiusIncrease":true,"toggleAutosMegaMenu":false,"toggleNotificationsOnWeb":true,"showAdmarktLink":false,"toggleCarproofBuyerSideError":false,"toggleRemoveSiblingLocationDropdowns":false,"toggleGoogleMapsFlowTest":true,"toggleNextLoginRegister":false,"toggleSellerExperienceLpContentful":false,"clientType":{"isTablet":false,"isMobile":false,"isDesktop":true,"device":"UNKNOWN (mobile=false, isApple=false)"},"toggleTicketsSponsored":true,"toggleOverviewDescriptionAutosRedesign":false,"toggleSimilarListingsCarousel":false,"toggleAutoVerifyProdSdk":true,"toggleUpdateUrgentToFeatured":true,"boxInternalUrl":"\u002Fv-view-details.html","toggleMarkAsSold":false,"toggleBoostVehiclesRadius":true,"toggleMoveCrossPromotion":true,"toggleAmazonTam":true,"toggleMultiReplyModal":false,"toggleReadStateIndicator":true,"toggleCalculateAdOwnerForWeb":false,"profile":{"memberSince":"September 30 2016","postersCompanyName":"Fraser Tolmie - 1701 Cedar Hill X","isDealer":false,"isDealerInCategory":true,"phoneNumberStart":"778-403-","phoneToken":"1634176070:1lDs4UGZbW_cuUkW2AP\u002Fqc94G4flOUHEeokyYmvtFtE-","isCas":false,"otherAdsUrl":"\u002Fo-profile\u002F1025772832","isAdmarkt":false,"showPhoneNumber":true,"isDealerType":true},"toggleEnableWebpFormat":true,"toggleAutosDealerCovidInfo":false,"requestQueryString":null,"toggleBusinessAccountPostAdFlow":false,"toggleNextRegisterBusiness":false,"toggleRepeatedAdsInBuyerSession":false,"toggleVipSimilarAdsV2":false,"changeLocationURL":null,"toggleGuestSavedSearch":false,"toggleSrpBetaOptIn":false,"toggleFavouriteSearches":true,"searchForm":{"attributeMap":{},"ll":null,"highlightOnly":false,"sortByName":"dateDesc","adPriceType":null,"locationName":"Victoria","adIdRemoved":null,"maxPrice":null,"attributeFiltersMax":{},"userId":null,"origin":null,"categoryName":"","keywords":null,"searchView":"LIST","urgentOnly":false,"cpoOnly":false,"gpTopAd":false,"locationId":1700173,"radius":"","seoLocation":"victoria-bc","attributeFiltersMin":{},"parentCategoryName":null,"address":"Victoria, British Columbia","noLocation":false,"minPrice":null,"pageNumber":1,"attributeResult":{"seoAttributes":[],"nonSeoAttributes":[],"nonSeoAttributeIds":[]},"categoryId":null,"locationPath":"0,9007,1700173","parentCategorySeoUrl":null,"carproofOnly":false,"dc":false},"toggleHomepageMixTest":true,"toggleEnableAutosFeatureCommunication":true,"togglePhotoAddedNotification":true,"isCarsTrucksSyiLinkTestGroup":false,"toggleNextWebappSrpBeta":false,"toggleCpoAttribute":false,"toggleDealerPhoneReveal":true,"toggleAfshCarousel":true,"toggleStickySearchBar":false,"toggleVipSimilarAds":false,"toggleChameleonTracking":true,"toggleOnetimeSavedSearch":true,"toggleShowPriceTransparency":true,"boxInternalQueryString":"adId=1634176070&siteLocale=en_CA","toggleVipFavoriteAndSocialShareRedesign":false,"toggleCovidAttributesReJobs":true,"adInfo":{"title":"1 Bedroom Apartments for Rent in Victoria","seoUrl":"https:\u002F\u002Fwww.kijiji.ca\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070","sharingImageUrl":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-300-jpg"},"userLoggedIn":false,"toggleRemoveLoginReplyDealer":false,"hashedUserId":null,"toggleSvipCes":false,"toggleHomeLpV3":true,"togglePaymentCalculator":true,"toggleSimilarItemsVip":false,"toggleSearchGuidance":false,"toggleCustomerEffortScore":true,"toggleNewRePricingPackages":true,"toggleRemoveCategorySelector":false,"toggleLivePerson":true,"toggleCrossPromoRibbonV2":false,"toggleCarsTrucksSyiLink":false,"toggleCovidL1":true,"toggleTrendingCategory":true,"toggleRecaptchaOnLogin":true,"toggleReVirtualTours":true,"isCarsTrucksMenuLinkControlGroup":false,"toggleGzipCompression":true,"toggleMoveCrossPromoInCategorySuggestions":true,"toggleSeoTrendingKeywords":false,"language":"en","toggleLoginToFavourite":true,"toggleHpDefendMarketplace":true,"toggleNonRepeatedAdsForAdmarktClassic":false,"toggleBookTestDrive":false,"toggleCategoryNavigationA":false,"toggleCategoryNavigationB":false,"toggleAutoVerify":true,"toggleReCallTracking":true,"toggleNeighbourhoodAttributes":false,"toggleNwaSrpBeta":false,"toggleAfshTestVip":true,"VIP":{"isNewCarAd":false,"multiLocationUrl":null,"externalSourceId":9001,"postersCompanyName":"Fraser Tolmie - 1701 Cedar Hill X","staticMapImageUrl":"https:\u002F\u002Fmaps.googleapis.com\u002Fmaps\u002Fapi\u002Fstaticmap?key=AIzaSyDVZWjkKzyq2GcaIpGMsLfMVSjusEEUa40&channel=box-canada&center=48.459690,-123.329070&zoom=15&size=350x140&markers=anchor:14,40%7Cicon:https:\u002F\u002Fca.classistatic.com\u002Fstatic\u002FV\u002F11866\u002Fimg\u002Ficon\u002Ficon_map_pin.png%7C48.459690,-123.329070&signature=q47Uyj9I1_q59mSWepk1nPA2nHE=","contactPosterFromName":null,"posterOtherAdsUrl":"\u002Fo-fraser-tolmie-1701-cedar-hill-x\u002F1025772832?referral=organic","editAdUrl":"\u002Fp-edit-ad.html?adId=1634176070","adPosted":false,"tempPhoneNumber":null,"isComFree":false,"postersNumberOfActiveAds":2,"media":[{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fdb\u002Fdbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fdb\u002Fdbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Ff9\u002Ff9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Ff9\u002Ff9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F19\u002F1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F19\u002F1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F4f\u002F4fbb1c83-18b5-4a2f-9672-aea2e96367ea?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F4f\u002F4fbb1c83-18b5-4a2f-9672-aea2e96367ea?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F75\u002F753eaa0e-4443-4912-93d4-0ca2b32160da?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F75\u002F753eaa0e-4443-4912-93d4-0ca2b32160da?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F2b\u002F2b724103-29f0-450b-9da9-54824853d696?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F2b\u002F2b724103-29f0-450b-9da9-54824853d696?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F10\u002F10fe5a7e-4a34-4c06-a27d-6d2e64faec8d?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F10\u002F10fe5a7e-4a34-4c06-a27d-6d2e64faec8d?rule=kijijica-64-jpg"}],"userType":"KMB","displayPhoneNumberField":false,"isRealEstateKitAd":true,"isGmOem":false,"posterId":1025772832,"isSpinCar":false,"price":{"amount":213500,"type":"FIXED"},"isMoveListing":false,"cpoClickUrl":null,"applicationLink":null,"sellerName":null,"adEdited":false,"isRetailKitAd":false,"isPintAd":true,"adData":{"chatOptIn":false,"moveVipUrl":null,"showPinOnMap":true,"virtualTourUrl":null,"tradeInOptIn":false,"moveVipUrlFr":null,"hasEnhancedLeadForm":false,"province":null,"originalPrice":null,"salesforceId":"00140000011liyA","rentalBadge":null,"creditOptIn":false},"isMlsAd":false,"posterOtherAds":[{"id":1634176069,"title":"2 Bedroom Apartments for Rent in Victoria","description":"Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new ...","price":{"amount":257500,"type":"FIXED"},"normalUrl":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fea\u002Fea2e897f-14e2-4da4-9a35-670bf66d6576?rule=kijijica-200-jpg","seoUrl":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F2-bedroom-apartments-for-rent-in-victoria\u002F1634176069","originalPrice":null},{"id":1634176070,"title":"1 Bedroom Apartments for Rent in Victoria","description":"Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new ...","price":{"amount":213500,"type":"FIXED"},"normalUrl":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-200-jpg","seoUrl":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070","originalPrice":null}],"isCasAd":false,"customTabs":[{"tabId":"DESCRIPTION","tabType":null,"labelImage":null,"labelTitle":"Description","labelSubtitle":null,"jspContentTabId":"..\u002Fincludes\u002Ftabs\u002FdescriptionTab.inc.jsp","dfpTileIndex":null}],"breadCrumbs":[{"name":"Home","url":"\u002Fh-victoria-bc\u002F1700173"},{"name":"Real Estate","url":"\u002Fb-real-estate\u002Fvictoria-bc\u002Fc34l1700173"},{"name":"For Rent","url":"\u002Fb-for-rent\u002Fvictoria-bc\u002Fc30349001l1700173"},{"name":"Long Term Rentals in Victoria","url":"\u002Fb-apartments-condos\u002Fvictoria-bc\u002Fc37l1700173"}],"locationId":1700173,"displayFileUploadButton":false,"visitCounter":3941,"userEmail":"pint-ac6e2b80-8510-4a6e-a7b0-5230268d3e40@kijiji.ca","hasCreditAppForm":false,"loggedInUser":false,"sortingDate":1690082684000,"seoUrl":"https:\u002F\u002Fwww.kijiji.ca\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070?siteLocale=en_CA","totalPending":null,"sharingUrl":"https:\u002F\u002Fwww.kijiji.ca\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070?siteLocale=en_CA","adEditedWithPayment":false,"anonymizeReplies":false,"gptData":{"gptSlotName":"\u002F5138\u002Fkij.ca.housing\u002Fapartments__condos","gptSlotNameSuffix":"housing\u002Fapartments__condos","gptTargetting":{"ab":"0","pt":"VIP","l1":"housing","hn":"kijiji.ca","l2":"for_rent","l3":"apartments__condos","lt":"c","price":"2135","pagetype":"viewitem","bellfibe":"none","city":"victoria","furn":"no","g_prebid_version":"7.5.0","lang":"en","province":"britishcolumbia","ct":"[\"37\", \"30349001\", \"34\"]","dv":"d","HBL":"yes","bath":"1","pets":"yes","propmgr":"frasertolmie1701cedarhillx","reg_user":"no","g_adid":"1634176070","lc":"1700173","webappname":"box","forrentby":"professional","type":"OFFER","features":"[\"topad\"]","li":"no","bdrm":"1"},"gptImpressionPixelSuffix":"\u002Fkij.ca.housing\u002Fapartments__condos","ppid":null,"ot":null},"showAdActivatedMessage":false,"cpoImageUrl":null,"isPaid":true,"contactPosterFrom":null,"fesCasR2SModel":null,"adLocation":{"latitude":48.45969,"longitude":-123.32907,"mapAddress":"1701 Cedar Hill X, Victoria, BC, V8X 5A8","province":"british-columbia","mapRadius":0},"title":"1 Bedroom Apartments for Rent in Victoria","isJobsKitAd":false,"categoryId":37,"locationPath":[0,9007,1700173],"adAttributes":[{"machineKey":"forrentbyhousing","machineValue":"reprofessional","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"For Rent By","value":"Professional"},"fr":{"label":"À louer par","value":"Professionnel"}},"attributeLink":null},{"machineKey":"unittype","machineValue":"apartment","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Unit Type","value":"Apartment"},"fr":{"label":"Type de logement","value":"Appartement"}},"attributeLink":null},{"machineKey":"numberbedrooms","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bedrooms","value":"1"},"fr":{"label":"Pièces","value":"3 1\u002F2"}},"attributeLink":null},{"machineKey":"numberbathrooms","machineValue":"10","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bathrooms","value":"1"},"fr":{"label":"Salles de bain","value":"1"}},"attributeLink":null},{"machineKey":"agreementtype","machineValue":"one-year","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Agreement Type","value":"1 Year"},"fr":{"label":"Durée du bail","value":"1 an"}},"attributeLink":null},{"machineKey":"petsallowed","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Pet Friendly","value":"Yes"},"fr":{"label":"Animaux acceptés","value":"Oui"}},"attributeLink":null},{"machineKey":"areainfeet","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Size (sqft)","value":null},"fr":{"label":"Taille (pieds carrés)","value":null}},"attributeLink":null},{"machineKey":"furnished","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Furnished","value":"No"},"fr":{"label":"Meublé","value":"Non"}},"attributeLink":null},{"machineKey":"laundryinunit","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Laundry (In Unit)","value":"No"},"fr":{"label":"Buanderie (dans l'appartement)","value":"Non"}},"attributeLink":null},{"machineKey":"laundryinbuilding","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Laundry (In Building)","value":"Yes"},"fr":{"label":"Buanderie (dans l'immeuble)","value":"Oui"}},"attributeLink":null},{"machineKey":"dishwasher","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Dishwasher","value":"Yes"},"fr":{"label":"Lave-vaisselle","value":"Oui"}},"attributeLink":null},{"machineKey":"fridgefreezer","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Fridge \u002F Freezer","value":"Yes"},"fr":{"label":"Réfrigérateur \u002F congélateur","value":"Oui"}},"attributeLink":null},{"machineKey":"airconditioning","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Air Conditioning","value":"No"},"fr":{"label":"Air conditionné","value":"Non"}},"attributeLink":null},{"machineKey":"yard","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Yard","value":"No"},"fr":{"label":"Jardin","value":"Non"}},"attributeLink":null},{"machineKey":"balcony","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Balcony","value":"Yes"},"fr":{"label":"Balcon","value":"Oui"}},"attributeLink":null},{"machineKey":"smokingpermitted","machineValue":"2","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Smoking Permitted","value":"Outdoors only"},"fr":{"label":"Fumeurs acceptés","value":"Seulement à l'extérieur"}},"attributeLink":null},{"machineKey":"gym","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Gym","value":"No"},"fr":{"label":"Salle de sport","value":"Non"}},"attributeLink":null},{"machineKey":"pool","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Pool","value":"No"},"fr":{"label":"Piscine","value":"Non"}},"attributeLink":null},{"machineKey":"concierge","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Concierge","value":"No"},"fr":{"label":"Concierge","value":"Non"}},"attributeLink":null},{"machineKey":"twentyfourhoursecurity","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"24 Hour Security","value":"No"},"fr":{"label":"Sécurité 24 heures sur 24","value":"Non"}},"attributeLink":null},{"machineKey":"bicycleparking","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bicycle Parking","value":"No"},"fr":{"label":"Stationnement pour vélos","value":"Non"}},"attributeLink":null},{"machineKey":"storagelocker","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Storage Space","value":"No"},"fr":{"label":"espace de stockage","value":"Non"}},"attributeLink":null},{"machineKey":"elevator","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Elevator in Building","value":"No"},"fr":{"label":"Ascenseur","value":"Non"}},"attributeLink":null},{"machineKey":"wheelchairaccessible","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Wheelchair accessible","value":"No"},"fr":{"label":"Accessible en fauteuil roulant","value":"Non"}},"attributeLink":null},{"machineKey":"braillelabels","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Braille Labels","value":"No"},"fr":{"label":"Affichage en braille","value":"Non"}},"attributeLink":null},{"machineKey":"audioprompts","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Audio Prompts","value":"No"},"fr":{"label":"Messages sonores","value":"Non"}},"attributeLink":null},{"machineKey":"barrierfreeentrancesandramps","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Barrier-free Entrances and Ramps","value":"No"},"fr":{"label":"Entrées et rampes d'accès sans obstacle","value":"Non"}},"attributeLink":null},{"machineKey":"visualaids","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Visual Aids","value":"No"},"fr":{"label":"Aides visuelles","value":"Non"}},"attributeLink":null},{"machineKey":"accessiblewashroomsinsuite","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Accessible Washrooms in Suite","value":"No"},"fr":{"label":"Toilettes accessibles","value":"Non"}},"attributeLink":null},{"machineKey":"hydro","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Hydro","value":"No"},"fr":{"label":"Électricité","value":"Non"}},"attributeLink":null},{"machineKey":"heat","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Heat","value":"No"},"fr":{"label":"Chauffage","value":"Non"}},"attributeLink":null},{"machineKey":"water","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Water","value":"No"},"fr":{"label":"Eau","value":"Non"}},"attributeLink":null},{"machineKey":"cabletv","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Cable \u002F TV","value":"No"},"fr":{"label":"Câble \u002F télé","value":"Non"}},"attributeLink":null},{"machineKey":"internet","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Internet","value":"No"},"fr":{"label":"Internet","value":"Non"}},"attributeLink":null},{"machineKey":"numberparkingspots","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Parking Included","value":"0"},"fr":{"label":"Stationnement inclus","value":"0"}},"attributeLink":null},{"machineKey":"rentalsvirtualoptions","machineValue":"[onlineapplication]","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Additional Options","value":null},"fr":{"label":"Options supplémentaires","value":null}},"attributeLink":null}],"repostReasons":[{"name":"AD_HAS_NOT_WORKED","messageEN":"This ad hasn't worked yet","messageFR":"Cette annonce n'a pas encore eu de succès"},{"name":"AD_IS_WORKING","messageEN":"This ad is working","messageFR":"Cette annonce a du succès"}],"replyEmailNameRequired":true,"description":"\u003Cp\u003EFraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. \u003Cbr\u003E\u003Cbr\u003EFraser Tolmie is situated at the base of Mount Tolmie and only steps away from University of Victoria and from local retail amenities, restaurants and grocery stores. Please note: as all available suites are currently under renovation, availability dates are approximations only and subject to change at any time. Please inquire with the Leasing Specialist for more information. Please note: This property will only be offering virtual tours until the specified availability for each listing. We appreciate your understanding.\u003C\u002Fp\u003EBuilding Amenities & Benefits\u003Cul\u003E\u003Cli\u003EClose Proximity to Park\u003C\u002Fli\u003E\u003Cli\u003EHot Tub\u003C\u002Fli\u003E\u003Cli\u003ESauna\u003C\u002Fli\u003E\u003Cli\u003EShared Garden\u003C\u002Fli\u003E\u003Cli\u003ELaundry Room\u003C\u002Fli\u003E\u003Cli\u003EResident Lounge\u003C\u002Fli\u003E\u003Cli\u003ESwimming Pool\u003C\u002Fli\u003E\u003Cli\u003EBicycle Storage\u003C\u002Fli\u003E\u003Cli\u003EUnderground Parking\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cem\u003EThis property is professionally managed by Devon Properties Ltd.\u003C\u002Fem\u003E","features":{"featured":false,"reduced":false,"pricedrop":false,"urgent":false},"adType":"OFFER","adId":1634176070,"l1CategoryId":34,"adSource":"O","isPreview":false},"toggleSkipVipR2sRecaptcha":true,"toggleGoogleMapsServerside":true,"toggleIcasRetailSearchStrategy":false,"targetUrl":"L3YtYXBhcnRtZW50cy1jb25kb3MvdmljdG9yaWEtYmMvMS1iZWRyb29tLWFwYXJ0bWVudHMtZm9yLXJlbnQtaW4tdmljdG9yaWEvMTYzNDE3NjA3MF55b3ZySExCZURLYWVWYXVWV2lvOEl3PT0-","toggleMoveXpromoAutosLandingPage":true,"toggleHomepageFeedHpg":true,"toggleDealerProfilePhoneReveal":true},"postAd":{"categories":{"all":{"level1":{"items":[],"parentId":null},"level2":{"items":[],"parentId":null},"level3":{"items":[],"parentId":null}},"suggested":[],"submittedTitle":""},"packages":{"error":false,"frozen":true,"items":{},"loaded":false,"selected":null},"postAdData":{"editing":false,"insertionFee":{"disclaimer":null,"exists":null,"postingLimit":null,"price":null},"l1CategoryId":null,"isShoppingCart":false,"isRepost":false},"postingLimit":{"adLimit":null,"categoryId":null,"categoryName":"","isAdmarktCategory":null,"isAdmarktUser":null,"isNewAd":null},"categoryConfig":[],"location":{"savedLocation":null,"postingLocation":null,"showExactLocation":true,"editingLocation":false,"locationApiLoadFailed":false},"loading":{"categories":{"all":{"failure":false,"pending":false,"success":false},"suggested":{"failure":false,"pending":false,"success":false}},"postAdData":{"failure":false,"pending":false,"success":false},"categoryConfig":{"failure":false,"pending":false,"success":false},"location":{"failure":false,"pending":false,"success":false}}},"messageBox":{"unreadCount":{"total":0,"asPoster":0,"asReplier":0},"loaded":false,"banners":{},"deleting":false,"activeConversation":{"loading":false,"loaded":false,"blockLoading":false,"failed":false,"data":{}},"totalCount":0,"prefetching":false,"roleFilter":"All","conversations":[],"unseenNotificationCount":0,"pageNum":0,"selected":[],"loading":false,"allSelected":false,"failed":false,"conversationCache":[]},"recentlyViewedAds":{"loading":{"failure":false,"pending":false,"success":false},"ads":[]},"viewItemPage":{"loading":false,"loaded":true,"viewItemData":{"isNewCarAd":false,"multiLocationUrl":null,"externalSourceId":9001,"postersCompanyName":"Fraser Tolmie - 1701 Cedar Hill X","staticMapImageUrl":"https:\u002F\u002Fmaps.googleapis.com\u002Fmaps\u002Fapi\u002Fstaticmap?key=AIzaSyDVZWjkKzyq2GcaIpGMsLfMVSjusEEUa40&channel=box-canada&center=48.459690,-123.329070&zoom=15&size=350x140&markers=anchor:14,40%7Cicon:https:\u002F\u002Fca.classistatic.com\u002Fstatic\u002FV\u002F11866\u002Fimg\u002Ficon\u002Ficon_map_pin.png%7C48.459690,-123.329070&signature=q47Uyj9I1_q59mSWepk1nPA2nHE=","contactPosterFromName":null,"posterOtherAdsUrl":"\u002Fo-fraser-tolmie-1701-cedar-hill-x\u002F1025772832?referral=organic","editAdUrl":"\u002Fp-edit-ad.html?adId=1634176070","adPosted":false,"tempPhoneNumber":null,"isComFree":false,"postersNumberOfActiveAds":2,"media":[{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fdb\u002Fdbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fdb\u002Fdbce4e45-9b8a-4618-b94c-e1148203ca67?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Ff9\u002Ff9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Ff9\u002Ff9e20b4f-9ce1-4ff7-afc0-732d4f91ee6e?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F19\u002F1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F19\u002F1989eb4c-63f2-4563-9d05-3b92d5b53cd9?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F4f\u002F4fbb1c83-18b5-4a2f-9672-aea2e96367ea?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F4f\u002F4fbb1c83-18b5-4a2f-9672-aea2e96367ea?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F75\u002F753eaa0e-4443-4912-93d4-0ca2b32160da?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F75\u002F753eaa0e-4443-4912-93d4-0ca2b32160da?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F2b\u002F2b724103-29f0-450b-9da9-54824853d696?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F2b\u002F2b724103-29f0-450b-9da9-54824853d696?rule=kijijica-64-jpg"},{"type":"image","href":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F10\u002F10fe5a7e-4a34-4c06-a27d-6d2e64faec8d?rule=kijijica-960-jpg","thumbnail":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F10\u002F10fe5a7e-4a34-4c06-a27d-6d2e64faec8d?rule=kijijica-64-jpg"}],"userType":"KMB","displayPhoneNumberField":false,"isRealEstateKitAd":true,"isGmOem":false,"posterId":1025772832,"isSpinCar":false,"price":{"amount":213500,"type":"FIXED"},"isMoveListing":false,"cpoClickUrl":null,"applicationLink":null,"sellerName":null,"adEdited":false,"isRetailKitAd":false,"isPintAd":true,"adData":{"chatOptIn":false,"moveVipUrl":null,"showPinOnMap":true,"virtualTourUrl":null,"tradeInOptIn":false,"moveVipUrlFr":null,"hasEnhancedLeadForm":false,"province":null,"originalPrice":null,"salesforceId":"00140000011liyA","rentalBadge":null,"creditOptIn":false},"isMlsAd":false,"posterOtherAds":[{"id":1634176069,"title":"2 Bedroom Apartments for Rent in Victoria","description":"Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new ...","price":{"amount":257500,"type":"FIXED"},"normalUrl":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002Fea\u002Fea2e897f-14e2-4da4-9a35-670bf66d6576?rule=kijijica-200-jpg","seoUrl":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F2-bedroom-apartments-for-rent-in-victoria\u002F1634176069","originalPrice":null},{"id":1634176070,"title":"1 Bedroom Apartments for Rent in Victoria","description":"Fraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new ...","price":{"amount":213500,"type":"FIXED"},"normalUrl":"https:\u002F\u002Fmedia.kijiji.ca\u002Fapi\u002Fv1\u002Fca-prod-dealer-ads\u002Fimages\u002F50\u002F50e9d9b0-9313-4b66-99f9-6061a97c93e9?rule=kijijica-200-jpg","seoUrl":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070","originalPrice":null}],"isCasAd":false,"processedDescription":"\u003Cp\u003EFraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. \u003Cbr\u003E\u003Cbr\u003EFraser Tolmie is situated at the base of Mount Tolmie and only steps away from University of Victoria and from local retail amenities, restaurants and grocery stores. Please note: as all available suites are currently under renovation, availability dates are approximations only and subject to change at any time. Please inquire with the Leasing Specialist for more information. Please note: This property will only be offering virtual tours until the specified availability for each listing. We appreciate your understanding.\u003C\u002Fp\u003EBuilding Amenities & Benefits\u003Cul\u003E\u003Cli\u003EClose Proximity to Park\u003C\u002Fli\u003E\u003Cli\u003EHot Tub\u003C\u002Fli\u003E\u003Cli\u003ESauna\u003C\u002Fli\u003E\u003Cli\u003EShared Garden\u003C\u002Fli\u003E\u003Cli\u003ELaundry Room\u003C\u002Fli\u003E\u003Cli\u003EResident Lounge\u003C\u002Fli\u003E\u003Cli\u003ESwimming Pool\u003C\u002Fli\u003E\u003Cli\u003EBicycle Storage\u003C\u002Fli\u003E\u003Cli\u003EUnderground Parking\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cem\u003EThis property is professionally managed by Devon Properties Ltd.\u003C\u002Fem\u003E","customTabs":[],"breadCrumbs":[{"name":"Home","url":"\u002Fh-victoria-bc\u002F1700173"},{"name":"Real Estate","url":"\u002Fb-real-estate\u002Fvictoria-bc\u002Fc34l1700173"},{"name":"For Rent","url":"\u002Fb-for-rent\u002Fvictoria-bc\u002Fc30349001l1700173"},{"name":"Long Term Rentals in Victoria","url":"\u002Fb-apartments-condos\u002Fvictoria-bc\u002Fc37l1700173"}],"locationId":1700173,"displayFileUploadButton":false,"visitCounter":3941,"userEmail":"pint-ac6e2b80-8510-4a6e-a7b0-5230268d3e40@kijiji.ca","hasCreditAppForm":false,"loggedInUser":false,"sortingDate":1690082684000,"seoUrl":"https:\u002F\u002Fwww.kijiji.ca\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070?siteLocale=en_CA","totalPending":null,"sharingUrl":"https:\u002F\u002Fwww.kijiji.ca\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070?siteLocale=en_CA","adEditedWithPayment":false,"anonymizeReplies":false,"gptData":{"gptSlotName":"\u002F5138\u002Fkij.ca.housing\u002Fapartments__condos","gptSlotNameSuffix":"housing\u002Fapartments__condos","gptTargetting":{"ab":"0","pt":"VIP","l1":"housing","hn":"kijiji.ca","l2":"for_rent","l3":"apartments__condos","lt":"c","price":"2135","pagetype":"viewitem","bellfibe":"none","city":"victoria","furn":"no","g_prebid_version":"7.5.0","lang":"en","province":"britishcolumbia","ct":"[\"37\", \"30349001\", \"34\"]","dv":"d","HBL":"yes","bath":"1","pets":"yes","propmgr":"frasertolmie1701cedarhillx","reg_user":"no","g_adid":"1634176070","lc":"1700173","webappname":"box","forrentby":"professional","type":"OFFER","features":"[\"topad\"]","li":"no","bdrm":"1"},"gptImpressionPixelSuffix":"\u002Fkij.ca.housing\u002Fapartments__condos","ppid":null,"ot":null},"showAdActivatedMessage":false,"cpoImageUrl":null,"isPaid":true,"contactPosterFrom":null,"fesCasR2SModel":null,"adLocation":{"latitude":48.45969,"longitude":-123.32907,"mapAddress":"1701 Cedar Hill X, Victoria, BC, V8X 5A8","province":"british-columbia","mapRadius":0},"title":"1 Bedroom Apartments for Rent in Victoria","isJobsKitAd":false,"categoryId":37,"locationPath":[0,9007,1700173],"adAttributes":{"attributes":[{"machineKey":"unittype","machineValue":"apartment","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Unit Type","value":"Apartment"},"fr":{"label":"Type de logement","value":"Appartement"}},"attributeLink":null},{"machineKey":"numberbedrooms","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bedrooms","value":"1"},"fr":{"label":"Pièces","value":"3 1\u002F2"}},"attributeLink":null},{"machineKey":"numberbathrooms","machineValue":"10","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bathrooms","value":"1"},"fr":{"label":"Salles de bain","value":"1"}},"attributeLink":null},{"machineKey":"agreementtype","machineValue":"one-year","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Agreement Type","value":"1 Year"},"fr":{"label":"Durée du bail","value":"1 an"}},"attributeLink":null},{"machineKey":"petsallowed","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Pet Friendly","value":"Yes"},"fr":{"label":"Animaux acceptés","value":"Oui"}},"attributeLink":null},{"machineKey":"areainfeet","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Size (sqft)","value":null},"fr":{"label":"Taille (pieds carrés)","value":null}},"attributeLink":null},{"machineKey":"furnished","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Furnished","value":"No"},"fr":{"label":"Meublé","value":"Non"}},"attributeLink":null},{"machineKey":"laundryinunit","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Laundry (In Unit)","value":"No"},"fr":{"label":"Buanderie (dans l'appartement)","value":"Non"}},"attributeLink":null},{"machineKey":"laundryinbuilding","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Laundry (In Building)","value":"Yes"},"fr":{"label":"Buanderie (dans l'immeuble)","value":"Oui"}},"attributeLink":null},{"machineKey":"dishwasher","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Dishwasher","value":"Yes"},"fr":{"label":"Lave-vaisselle","value":"Oui"}},"attributeLink":null},{"machineKey":"fridgefreezer","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Fridge \u002F Freezer","value":"Yes"},"fr":{"label":"Réfrigérateur \u002F congélateur","value":"Oui"}},"attributeLink":null},{"machineKey":"airconditioning","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Air Conditioning","value":"No"},"fr":{"label":"Air conditionné","value":"Non"}},"attributeLink":null},{"machineKey":"yard","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Yard","value":"No"},"fr":{"label":"Jardin","value":"Non"}},"attributeLink":null},{"machineKey":"balcony","machineValue":"1","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Balcony","value":"Yes"},"fr":{"label":"Balcon","value":"Oui"}},"attributeLink":null},{"machineKey":"smokingpermitted","machineValue":"2","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Smoking Permitted","value":"Outdoors only"},"fr":{"label":"Fumeurs acceptés","value":"Seulement à l'extérieur"}},"attributeLink":null},{"machineKey":"gym","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Gym","value":"No"},"fr":{"label":"Salle de sport","value":"Non"}},"attributeLink":null},{"machineKey":"pool","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Pool","value":"No"},"fr":{"label":"Piscine","value":"Non"}},"attributeLink":null},{"machineKey":"concierge","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Concierge","value":"No"},"fr":{"label":"Concierge","value":"Non"}},"attributeLink":null},{"machineKey":"twentyfourhoursecurity","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"24 Hour Security","value":"No"},"fr":{"label":"Sécurité 24 heures sur 24","value":"Non"}},"attributeLink":null},{"machineKey":"bicycleparking","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Bicycle Parking","value":"No"},"fr":{"label":"Stationnement pour vélos","value":"Non"}},"attributeLink":null},{"machineKey":"storagelocker","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Storage Space","value":"No"},"fr":{"label":"espace de stockage","value":"Non"}},"attributeLink":null},{"machineKey":"elevator","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Elevator in Building","value":"No"},"fr":{"label":"Ascenseur","value":"Non"}},"attributeLink":null},{"machineKey":"wheelchairaccessible","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Wheelchair accessible","value":"No"},"fr":{"label":"Accessible en fauteuil roulant","value":"Non"}},"attributeLink":null},{"machineKey":"braillelabels","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Braille Labels","value":"No"},"fr":{"label":"Affichage en braille","value":"Non"}},"attributeLink":null},{"machineKey":"audioprompts","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Audio Prompts","value":"No"},"fr":{"label":"Messages sonores","value":"Non"}},"attributeLink":null},{"machineKey":"barrierfreeentrancesandramps","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Barrier-free Entrances and Ramps","value":"No"},"fr":{"label":"Entrées et rampes d'accès sans obstacle","value":"Non"}},"attributeLink":null},{"machineKey":"visualaids","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Visual Aids","value":"No"},"fr":{"label":"Aides visuelles","value":"Non"}},"attributeLink":null},{"machineKey":"accessiblewashroomsinsuite","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Accessible Washrooms in Suite","value":"No"},"fr":{"label":"Toilettes accessibles","value":"Non"}},"attributeLink":null},{"machineKey":"hydro","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Hydro","value":"No"},"fr":{"label":"Électricité","value":"Non"}},"attributeLink":null},{"machineKey":"heat","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Heat","value":"No"},"fr":{"label":"Chauffage","value":"Non"}},"attributeLink":null},{"machineKey":"water","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Water","value":"No"},"fr":{"label":"Eau","value":"Non"}},"attributeLink":null},{"machineKey":"cabletv","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Cable \u002F TV","value":"No"},"fr":{"label":"Câble \u002F télé","value":"Non"}},"attributeLink":null},{"machineKey":"internet","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Internet","value":"No"},"fr":{"label":"Internet","value":"Non"}},"attributeLink":null},{"machineKey":"numberparkingspots","machineValue":"0","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Parking Included","value":"0"},"fr":{"label":"Stationnement inclus","value":"0"}},"attributeLink":null},{"machineKey":"rentalsvirtualoptions","machineValue":"[onlineapplication]","displayable":true,"booleanAttribute":false,"localeSpecificValues":{"en":{"label":"Additional Options","value":null},"fr":{"label":"Options supplémentaires","value":null}},"attributeLink":null}],"attributeMessages":{},"isPostedByOwner":false,"poster":{"en":{"label":"For Rent By","value":"Professional"},"fr":{"label":"À louer par","value":"Professionnel"}}},"repostReasons":[{"name":"AD_HAS_NOT_WORKED","messageEN":"This ad hasn't worked yet","messageFR":"Cette annonce n'a pas encore eu de succès"},{"name":"AD_IS_WORKING","messageEN":"This ad is working","messageFR":"Cette annonce a du succès"}],"replyEmailNameRequired":true,"description":"\u003Cp\u003EFraser Tolmie is a three-storey apartment complex totaling 207-unit comprised of one- and two-bedroom suites. All available units have been newly renovated with stainless steel appliances, new cabinetry and beautifully upgraded kitchens and bathrooms. In addition, residents enjoy a pool, sauna, hot tub and resident lounge for their exclusive use and convenience. \u003Cbr\u003E\u003Cbr\u003EFraser Tolmie is situated at the base of Mount Tolmie and only steps away from University of Victoria and from local retail amenities, restaurants and grocery stores. Please note: as all available suites are currently under renovation, availability dates are approximations only and subject to change at any time. Please inquire with the Leasing Specialist for more information. Please note: This property will only be offering virtual tours until the specified availability for each listing. We appreciate your understanding.\u003C\u002Fp\u003EBuilding Amenities & Benefits\u003Cul\u003E\u003Cli\u003EClose Proximity to Park\u003C\u002Fli\u003E\u003Cli\u003EHot Tub\u003C\u002Fli\u003E\u003Cli\u003ESauna\u003C\u002Fli\u003E\u003Cli\u003EShared Garden\u003C\u002Fli\u003E\u003Cli\u003ELaundry Room\u003C\u002Fli\u003E\u003Cli\u003EResident Lounge\u003C\u002Fli\u003E\u003Cli\u003ESwimming Pool\u003C\u002Fli\u003E\u003Cli\u003EBicycle Storage\u003C\u002Fli\u003E\u003Cli\u003EUnderground Parking\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003Cem\u003EThis property is professionally managed by Devon Properties Ltd.\u003C\u002Fem\u003E","features":{"featureBadges":{"featured":false,"reduced":false,"urgent":false},"priceDrop":false},"adType":"OFFER","adId":1634176070,"l1CategoryId":34,"adSource":"O","isPreview":false,"carProofMetaData":{"purchased":false}},"isModalMapOpen":false},"myKijiji":{"myAds":{"ads":{"adsDirectory":{},"sortedAdIds":[],"requestedAds":{},"filtering":{"activeFilter":"active","currentSort":{"active":{"field":"sortableEndDate","ascending":true},"inactive":{"field":"sortableEndDate","ascending":true},"deleted":{"field":"deletedDate","ascending":true}},"search":""},"currentPage":1,"overheadMessageError":null},"promotions":{"totalPrice":0,"selectedfeatureIds":[],"sellingPoint":"MY_KIJIJI"},"loading":{"fullAds":{"failure":false,"pending":false,"success":false},"requestedAds":{"failure":false,"pending":false,"success":false},"sparseAds":{"failure":false,"pending":false,"success":false}}},"priceDrop":{"oldPrice":0,"userId":0,"error":false,"newPrice":0,"featureDuration":0,"successPage":"","featurePrice":0,"spawnId":0,"attemptingPurchase":false,"failurePage":"","featureIdentifier":""},"surveys":{"loading":{"failure":false,"pending":false,"success":false}}},"profile":{"memberSince":"September 30 2016","postersCompanyName":"Fraser Tolmie - 1701 Cedar Hill X","isDealer":false,"loaded":true,"isDealerInCategory":true,"phoneNumberStart":"778-403-","phoneToken":"1634176070:1lDs4UGZbW_cuUkW2AP\u002Fqc94G4flOUHEeokyYmvtFtE-","isCas":false,"otherAdsUrl":"\u002Fo-profile\u002F1025772832","isAdmarkt":false,"showPhoneNumber":true,"loading":false,"isDealerType":true},"router":{"group":"NONE","route":"UNKNOWN","path":"\u002Fv-apartments-condos\u002Fvictoria-bc\u002F1-bedroom-apartments-for-rent-in-victoria\u002F1634176070","pathParams":{},"queryParams":{},"isVirtualPageView":false},"messages":{},"componentPositions":{"componentOffsets":{}},"searchResults":{"hasSponsors":false,"loadStates":{"sponsors":{"loaded":false,"loading":false}},"loaded":false,"loading":false},"mediaGallery":{},"homepage":{"loading":false,"loaded":false,"data":{},"searchFieldFocused":false},"cookies":{},"showMore":{},"admarktTopSpot":{},"r2s":{"submitted":false,"submitting":false,"error":null,"lastMessage":""},"itemLocationMap":{},"reportAd":{"submitting":false,"submitted":false},"financing":{"submitting":false,"submitted":false},"phoneNumber":{"value":null},"googleMapApi":{"locationApiLoadFailed":false},"shareLink":{"adInfo":{},"loaded":false,"loading":false},"locale":"en-CA","pubnub":{"connected":false,"suspended":false,"reconnectAllowed":true},"carproofRequest":{"requestAttempt":false,"requestSuccess":false,"requestFail":false,"requestMessage":null}};</script>
+      <script defer src="//ca.classistatic.com/service-static/frontend-service/vendor.afa38b04.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/shareLinkBar.01456f62.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/runtime.2346da4e.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/2.705fb46a.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/app.e008f1c8.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/viewItemPage.ad08a946.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/footer.9f18eb43.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/publicLinks.e3f63c66.js"></script>
+<script defer src="//ca.classistatic.com/service-static/frontend-service/en-i18n-json.8ec372ff.js"></script>
+    </div>
+  <script type="text/javascript">window.__apolloData={"ROOT_QUERY":{"categoryPaths":{"type":"json","json":[]},"favouriteSearch":{"type":"id","generated":true,"id":"$ROOT_QUERY.favouriteSearch","typename":"FavouriteSearch"},"geolocation":{"type":"id","generated":true,"id":"$ROOT_QUERY.geolocation","typename":"Geolocation"},"adDetails":{"type":"id","generated":true,"id":"$ROOT_QUERY.adDetails","typename":"AdDetailsQuery"},"contactSection":{"type":"id","generated":true,"id":"$ROOT_QUERY.contactSection","typename":"ContactSectionQuery"},"priceSection":{"type":"id","generated":true,"id":"$ROOT_QUERY.priceSection","typename":"PriceSectionQuery"},"featureForm":{"type":"id","generated":true,"id":"$ROOT_QUERY.featureForm","typename":"FeatureFormQuery"},"suggestKeyword":{"type":"id","generated":true,"id":"$ROOT_QUERY.suggestKeyword","typename":"SuggestKeyword"},"deletingAd":{"type":"id","generated":true,"id":"$ROOT_QUERY.deletingAd","typename":"DeletingAd"}},"$ROOT_QUERY.favouriteSearch":{"alertId":null,"__typename":"FavouriteSearch"},"$ROOT_QUERY.geolocation":{"geolocation":null,"geolocationError":false,"__typename":"Geolocation"},"$ROOT_QUERY.adDetails":{"description":"","title":"","isUrgentSelected":false,"adType":"OFFER","attributeMap":"{}","servicesLocation":{"type":"id","generated":true,"id":"$ROOT_QUERY.adDetails.servicesLocation","typename":"ServicesLocationQuery"},"__typename":"AdDetailsQuery"},"$ROOT_QUERY.adDetails.servicesLocation":{"locationId":null,"mapAddress":"","__typename":"ServicesLocationQuery"},"$ROOT_QUERY.contactSection":{"email":"","phoneNumber":"","__typename":"ContactSectionQuery"},"$ROOT_QUERY.priceSection":{"amount":"","isPriceDrop":false,"isPriceDropBookable":false,"isShowingPriceDropControl":false,"originalAmount":"","priceDropPricing":"","type":"FIXED","__typename":"PriceSectionQuery"},"$ROOT_QUERY.featureForm":{"hasPaidFeaturesSelected":false,"__typename":"FeatureFormQuery"},"$ROOT_QUERY.suggestKeyword":{"query":"","categoryId":null,"selected":false,"type":null,"__typename":"SuggestKeyword"},"$ROOT_QUERY.deletingAd":{"adId":null,"categoryId":null,"markAsSold":null,"surveyAnswers":{"type":"json","json":[]},"__typename":"DeletingAd"}};</script><script src="https://ca.classistatic.com/static/V/11866/js/common.js"></script>
+<!-- BUNDLE: _ --><!-- END BUNDLE: _ -->
+<!-- BUNDLE: gpt --><!-- END BUNDLE: gpt -->
+<script src="https://ca.classistatic.com/static/V/11866/js/text/text.js"></script>
+            <script src="https://ca.classistatic.com/static/V/11866/js/text/afs.js"></script>
+            <script src="https://ca.classistatic.com/static/V/11866/js/pages/post-limit.js"></script>
+            <script defer src='https://ca.classistatic.com/static/V/11866/js/templates.js'></script>
+
+<script>
+    Kj.extVars = {
+        validationMessages : {
+            group : "Please correct the errors below:",
+            req : "Please enter information above.",
+            email : "Please enter a valid email address.",
+            number : "Please enter a valid number.",
+            phone: "Please provide a valid phone number.",
+            maxlength : "Sorry, our limit is {{max}} characters. Please shorten your message.",
+            minlength: "Input needs to be at least {{min}} characters.",
+            numberRange: "Please enter a value between {{min}} and {{max}}.",
+            numberMax: "Please enter a value no greater than {{max}}.",
+            numberMin: "Please enter a value of at least {{min}}.",
+            fileType: "One or more image(s) failed to upload. File format not supported.",
+            fileSize: "One or more image(s) failed to upload. File size limit exceeded.",
+            matching: "Input does not match above",
+            matchingPasswords: "The provided passwords do not match.",
+            headline: "Please correct the following before continuing:",
+            creditcard: "Please correct your credit card number.",
+            radioButton: "Please select option above.",
+            postalCode: "Please provide a valid Postal Code.",
+            websiteUrl: "Website URL is invalid, please check your input.",
+            password: "It’s important to choose a strong password to protect your account. Please ensure your password meets all listed requirements."
+        },
+        tracking : {
+            page: "View Item Page",
+            locId: "1700173",
+            catId: "",
+            adOrUserNotFound: false
+        },
+        domainUrl : ".kijiji.ca",
+        locale: "en_CA",
+        facebook: {
+            requiredPermissions: "We require permission to access your email address, please try again with the correct permissions.",
+            error: "An error has occurred with Facebook login. Please try again."
+        },
+        isTestEnvironment: false,
+        staticUrl: "https://ca.classistatic.com/static/V/11866/"
+        
+    };
+
+    $(document).ready(function() {
+        
+        Kj.Tracking.initTrackAttributeSelection();
+        Kj.Tracking.initTrackPostAdBeginButtons();
+        Kj.Tracking.initTrackUserAccountActions({
+            isDealer: false
+        });
+        Kj.Tracking.initTrackAdActivation();
+        Kj.Tracking.TrackHelpDesk.init();
+        Kj.Tracking.initAddLinkerParam();
+        Kj.initHoverButtons();
+        Kj.Banners.BannerRendered.init();
+
+        
+            Kj.Banners.AdBlock.init();
+        
+        Belen.Controller.Search.extVars = {
+            staticContentBaseUrl: 'https://ca.classistatic.com/static/V/11866',
+        };
+
+        //Check for undefined override.
+        if (typeof undefined !== 'undefined') {
+            console.warn('HEY! Something is overwriting `undefined`. Don\'t ship!');
+        }
+    });
+</script>
+
+<noscript>
+    <style>
+        .jsonly {
+            display: none;
+        }
+        .jshidden {
+            display: block;
+        }
+    </style>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-W4V6"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    
+
+    $(document).ready(function() {
+
+        function checkCookieAndTrackGA(cookieName, action) {
+            var cookie = $.cookie(cookieName);
+            if (cookie !== undefined) {
+                action();
+                $.removeCookie(cookieName, {path: '/' });
+            }
+        }
+
+        checkCookieAndTrackGA("postAd", Kj.Tracking.initTrackPostAdSuccess);
+        checkCookieAndTrackGA("editAd", Kj.Tracking.initTrackEditAdSuccess);
+
+        
+            Kj.PostingLimit.Tracking.init();
+        
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <form style="display:none">
+        <input type="hidden" name="query" id="AdsenseQuery" value="1 Bedroom Apartments for Rent in Victoria Victoria housing for rent apartments, condos" />
+        <input type="hidden" name="query" id="AdsenseQueryShop" value="" />
+    </form>
+
+
+<script>
+    $(document).ready(function () {
+        Kj.Sponsors.init({
+            maxAds: 3,
+            keepTopBar: true
+        });
+
+        
+            
+            
+                
+            
+        
+
+        var adsenseConfig = {
+            isVIP: true,
+            test: 'off',
+            language: 'en',
+            pageType: 'vip',
+            csa: {
+                top: {
+                    number: 0
+                },
+                bottom: {
+                    number: 6
+                },
+                repeats: 0,
+                clientId: 'partner-kijiji-ca-vip',
+                clientIdShop: '',
+                channel: '0_w_vip_34_o_x_1_o_x+1_w_x_x_x_x_x_x_kca34949_a+1_w_x_x_x_x_x_x_kcan667_a+1_w_x_x_x_x_x_x_kca38991_b+1_w_x_x_x_x_x_x_kcan1806_b+1_a_x_x_x_x_x_x_kcan3326_a+++1_w_x_x_x_x_x_x_casint5487_b+1_w_x_x_x_x_x_x_kcan810_a+1_w_x_x_x_x_x_x_casint4862_a+1_w_x_x_x_x_x_x_kcan3671_b++++++1_w_x_x_x_x_x_x_kcan10715_0+1_w_x_x_x_x_x_x_kcan15957_1+++1_w_x_x_x_x_x_x_kcan18697_1+1_w_x_x_x_x_x_x_kcan18206_0+1_w_x_x_x_x_x_x_kcan17895_0++',
+                width: '100%'
+            }
+        };
+
+        
+            adsenseConfig.csa.afsStyleId = 9172256167;
+        
+
+        Kj.Adsense.init(adsenseConfig);
+        Kj.Sponsors.chain(Kj.Adsense.api);
+        Kj.Sponsors.doFilter();
+    });
+</script>
+
+</body>
+</html>
